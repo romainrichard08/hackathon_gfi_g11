@@ -22,8 +22,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</select>
 
 		<legend>Quelles compétences avez-vous? (Entrée pour ajouter)</legend>
-		<input type="text" name="competences"><br>
+		<div id='ajout-tag-wrap' class='input-form f-left'>
+        <ul class='u-t-input f-left w-100 h-auto'>
 
-		<input type="submit" value="Rechercher">
+            <input class='inputTagsText f-left' type='text' placeholder='Test...'>
+        </ul>
+        <ul class='searchResult'>
+
+        </ul>
+    </div>
+    <input id='uploadTagsValues' type='text' name='tags' style='display:none;'>
+
+		<button type="submit" class='bouton' design='blanc' value="Rechercher">Rechercher</button>
 		</fieldset>
 	</form>
