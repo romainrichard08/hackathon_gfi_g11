@@ -13,6 +13,13 @@ docRoot = '/hackathon_gfi_g11/';
 	})
 
 
+  $("body").on('click', '.searchResultItem', function(event){
+    var id = $(this).attr('idTag');
+    var label = $(this).text().trim();
+    ajouterItemTag({id: id, label: label}, listTagSelected);
+  })
+
+
 	$("body").on('keydown','.inputTagsText',function(event){
 		var touche = event.which;
 		var text = $(this).val();
@@ -75,13 +82,13 @@ docRoot = '/hackathon_gfi_g11/';
       else{
         listResultTag = "";
       }
-			if (listResultTag != "") {
+			if (listResultTag != "" && listResultTag != null) {
 				var index = 0;
 				for(var i = 0; i < listResultTag.length; i++)
 				{
 					var verify = verifyExistence(listTagSelected, listResultTag[i]);
 					if (verify) {
-						var template = "<li id='tagResult" + index + "' select='false' class='searchResultItem f-left'>\
+						var template = "<li idTag='"+listResultTag[i].id+"' id='tagResult" + index + "' select='false' class='searchResultItem f-left'>\
 									<span>" + listResultTag[i].label + "</span>\
 									</li>"
 						$(".searchResult").append(template);
@@ -135,7 +142,7 @@ function indexInList(list, item){
     var index = 0;
     for (var i = 0; i < list.length; i++)
     {
-      if (list[i].label == item.label) {
+      if (list[i].id == item.id) {
         return i;
       };
     };
@@ -197,7 +204,7 @@ function verifyExistence(list, item){
   var test = true;
   for (var i = 0; i < list.length; i++)
   {
-    if (list[i].label == item.label) {
+    if (list[i].id == item.id) {
       test = false;
     };
   };

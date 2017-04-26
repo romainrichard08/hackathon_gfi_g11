@@ -53,6 +53,7 @@
 				height: 30px;
 				padding: 5px;
 				line-height: 20px;
+				cursor: pointer;
 				&[select="true"]{
           background-color: $gfi;
 					// border-bottom: 2px solid $gfi - rgb(50,50,50);
@@ -63,6 +64,9 @@
 				&[select="false"]{
           background: none;
 					color: $g90;
+					&:hover{
+						background-color: lighten($gfi, 40%);
+					}
         }
 
 				span{
