@@ -4,7 +4,21 @@ listResultTag = ""; // stocker les tag recus
 listTagSelected = []; // stocker la liste de tag a envoyer
 resultSelected = 0;
 
+submit = true;
+
 docRoot = '/hackathon_gfi_g11/';
+
+  $('#searchJob').on('submit',function(event){
+    event.preventDefault();
+    var form = [];
+    form.branche = $('#branche').val();
+    form.contrat = $('#contrat').val();
+    form.localisation = $('#localisation').val();
+    form.competences = $("#uploadTagsValues").val();
+
+    findJobs(form);
+
+  })
 
 
 
@@ -117,6 +131,33 @@ docRoot = '/hackathon_gfi_g11/';
 });
 
 
+var result;
+function findJobs(form)
+{
+  $("#fondNoir").show();
+  $.ajax({
+    url: docRoot+ "indexController/findJobs",
+    datatype:"json",
+    method:'POST',
+    data:form,
+    async:false,
+    success:function(data)
+    {
+      setTimeout(function(){
+        $("#fondNoir").hide();
+      },3000)
+    }
+  });
+  return result;
+}
+
+
+
+
+
+
+
+
 function supprimerItemTag(item, event){
   event.stopPropagation();
   var id = $(item).parent().attr('id');
@@ -180,7 +221,6 @@ function ajouterItemTag(item, listTag){
   return list;
 }
 
-var result;
 function rechercheTags(text)
 {
   $.ajax({

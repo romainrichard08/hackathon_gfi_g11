@@ -231,29 +231,31 @@ form label.label {
   font-weight: bold;
   color: rgb(100,100,100);
   margin-top: 5px;
+  padding: 5px 0 5px 0;
 }
 
-// select{
-//   position: relative;
-//   height: 30px;
-//   outline: none;
-//   color: $mainColor;
-//   border-radius: 3px;
-//   font-size: 13px;
-//   line-height: 29px;
-//   padding: 0 10px 0 10px;
-//   box-shadow: none;
-//   border: 1px solid $w210;
-//   background: transparent;
-//   background-color: white;
-//   margin-bottom: 2px;
-//   vertical-align: middle;
-//   display: inline-block;
-//   background-image: none;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-// }
+select{
+  position: relative;
+  float: left;
+  height: 30px;
+  outline: none;
+  color: $mainColor;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 10px;
+  box-shadow: none;
+  border: 1px solid $gfi;
+  background: transparent;
+  background-color: white;
+  margin-bottom: 2px;
+  vertical-align: middle;
+  display: inline-block;
+  background-image: none;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+}
 
 
 // Template bouton
@@ -271,6 +273,7 @@ form label.label {
   cursor: pointer;
   border: 1px solid transparent;
   font-weight: normal;
+  outline: none;
   color: white;
   // box-shadow: 0 0 5px $w230;
   padding: 0px 13px 0px 13px;
@@ -314,17 +317,17 @@ form label.label {
     }
   }
 
-  &[design='brown'] {
-    background-color: $mainMarron;
-    // border: 1px solid ($mainMarron - rgb(20, 20, 20));
+  &[design='orange'] {
+    background-color: $gfi;
+    // border: 1px solid ($gfi - rgb(20, 20, 20));
     color: white;
 
     &:hover {
-      background-color: $mainMarron - rgb(20, 20, 20);
+      background-color: $gfi - rgb(20, 20, 20);
     }
 
     &:active {
-      background-color: $mainMarron - rgb(40, 40, 40);
+      background-color: $gfi - rgb(40, 40, 40);
     }
   }
 

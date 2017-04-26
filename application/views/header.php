@@ -2,7 +2,7 @@
 <html>
 <head>
     <!-- Page Title -->
-    <title></title>
+    <title>GFI Recherche d'offres</title>
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
