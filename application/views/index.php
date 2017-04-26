@@ -14,7 +14,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   <form action="/FormProfileController" method="post">
-    <fieldset>
     <legend>Dans quelle branche souhaitez-vous nous rejoindre?</legend>
     <select id="branche" required>
       <option value="Commercial">Commercial</option>
@@ -30,11 +29,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <option value="Alternance">Stage</option>
     </select>
 
+    <legend>Ou êtes-vous ?</legend>
+    <select id="localisation" required>
+      <option value="Paris">(75) - Paris</option>
+      <option value="Marseille">(13) - Marseille</option>
+      <option value="Lyon">(69) - Lyon</option>
+    </select>
+
     <legend>Quelles compétences avez-vous? (Entrée pour ajouter)</legend>
     <input type="text" name="competences"><br>
 
     <input type="submit" value="Rechercher">
-    </fieldset>
   </form>
 
 
