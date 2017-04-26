@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id='ajout-tag-wrap' class='input-form f-left'>
         <ul class='u-t-input f-left w-100 h-auto'>
 
-            <input class='inputTagsText f-left' type='text' placeholder='Test...'>
+            <input class='inputTagsText f-left' type='text' placeholder='Compétence...'>
         </ul>
         <ul class='searchResult'>
 
@@ -36,3 +36,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<button type="submit" class='bouton' design='blanc' value="Rechercher">Rechercher</button>
 		</fieldset>
 	</form>
+
+
+	<script type="text/javascript">
+		// function rechercheTags(text)
+		// {
+		// 	$.ajax({
+		// 		url: "<?php echo site_url('Home'); ?>home/search",
+		// 		datatype:"json",
+		// 		method:'POST',
+		// 		data:{tag: text},
+		// 		async:false,
+		// 		success:function(data)
+		// 		{
+		// 			if (data !== "") { data = JSON.parse(data)};
+		// 			result = data;
+		// 			console.log(data);
+		// 		}
+		// 	});
+		// 	return result;
+		// }
+	</script>

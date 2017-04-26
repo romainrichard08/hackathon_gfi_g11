@@ -44,7 +44,7 @@ docRoot = '/hackathon_gfi_g11/';
 		if ((touche == 13 || touche == 32) && text != "")
 		{
 			if (listResultTag == "" || resultSelected == -1) {
-				ajouterItemTag({label: text}, listTagSelected);
+				// ajouterItemTag({label: text}, listTagSelected);
 			}
 			else
 			{
@@ -69,8 +69,12 @@ docRoot = '/hackathon_gfi_g11/';
 		else
 		{
 			$(".searchResult").html("");
-			// listResultTag = rechercheTags(text);
-      listResultTag = "";
+			if (text != "" && text.length > 0) {
+        listResultTag = rechercheTags(text);
+			}
+      else{
+        listResultTag = "";
+      }
 			if (listResultTag != "") {
 				var index = 0;
 				for(var i = 0; i < listResultTag.length; i++)
@@ -92,6 +96,8 @@ docRoot = '/hackathon_gfi_g11/';
 				resultSelected = -1;
 				// $("#tagResult0").attr("select", "true");
 				$(".searchResult").show();
+        resultSelected ++;
+				$("#tagResult" + resultSelected).attr("select", 'true');
 			}
 			else
 			{
@@ -116,7 +122,7 @@ function supprimerItemTag(item, event){
   var template = "";
   $.each(listTagSelected, function(i, item)
   {
-    template += item.label + "/";
+    template += item.id + "/";
   })
   $("#uploadTagsValues").val(template);
   $(".inputTagsText").val("").width(1);
@@ -160,7 +166,7 @@ function ajouterItemTag(item, listTag){
   var template = "";
   $.each(list, function(i, item)
   {
-    template += item.label + "/";
+    template += item.id + "/";
   })
   listResultTag = '';
   $("#uploadTagsValues").val(template);
@@ -171,15 +177,17 @@ var result;
 function rechercheTags(text)
 {
   $.ajax({
-    url: docRoot+ "/tag/search",
+    url: docRoot+ "indexController/search",
     datatype:"json",
     method:'POST',
     data:{tag: text},
     async:false,
     success:function(data)
     {
+      console.log(data);
       if (data !== "") { data = JSON.parse(data)};
       result = data;
+
     }
   });
   return result;

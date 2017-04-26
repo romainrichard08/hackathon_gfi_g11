@@ -82,15 +82,15 @@ input, textarea {
 .tag{
 	position: relative;
 	float: left;
-	height: 20px;
+	height: 25px;
 	width: auto;
 	margin: 2px 4px 2px 0;
 	padding: 0 5px 0 5px;
-	background-color: $mainColor;
+	background-color: $gfi;
 	font-size: 13px;
 	color: $w250;
 	line-height: 22px;
-	border-bottom: 2px solid $mainColor - rgb(50,50,50);
+	border-bottom: 2px solid $gfi - rgb(50,50,50);
 	border-radius: 3px;
 	&:hover{
     opacity: 0.9;
@@ -197,7 +197,7 @@ label {
 .input-form {
   position: relative;
   float: left;
-  border: 1px solid $mainColor;
+  border: 1px solid $gfi;
   background-color: white;
   color: $mainColor;
   vertical-align: middle;
@@ -210,11 +210,11 @@ label {
   border-radius: 4px;
 
   &:hover{
-    border: 1px solid darken($mainColor, 10%);
+    border: 1px solid darken($gfi, 10%);
   }
 
   &:focus{
-    border: 1px solid darken($mainColor, 20%);
+    border: 1px solid darken($gfi, 20%);
   }
 }
 
