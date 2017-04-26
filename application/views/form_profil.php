@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<label class='label'>Dans quelle branche souhaitez-vous nous rejoindre?</label>
 					<select id="branche" required>
 					  <option value="Commercial">Commercial</option>
-					  <option value="Informatique">Informatique</option>
+					  <option value="Informatique" selected>Informatique</option>
 					  <option value="Ressources-humaines">Ressources Humaines</option>
 					</select><br>
 

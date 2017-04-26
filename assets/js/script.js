@@ -3,6 +3,13 @@ $(document).ready(function() {
 listResultTag = ""; // stocker les tag recus
 listTagSelected = []; // stocker la liste de tag a envoyer
 resultSelected = 0;
+branche = $('#branche').val();
+
+$( "#branche" ).change(function() {
+  branche = $('#branche').val();
+
+});
+
 
 submit = true;
 
@@ -221,13 +228,13 @@ function ajouterItemTag(item, listTag){
   return list;
 }
 
-function rechercheTags(text)
+function rechercheTags(branche, text)
 {
   $.ajax({
     url: docRoot+ "indexController/search",
     datatype:"json",
     method:'POST',
-    data:{tag: text},
+    data:{tag: text, branche: text},
     async:false,
     success:function(data)
     {
