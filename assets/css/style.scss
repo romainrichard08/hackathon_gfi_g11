@@ -1,0 +1,76 @@
+// @import "tools.scss";
+@import '_variables.scss';
+
+
+#ajout-tag-wrap{
+		cursor: text;
+		height: auto;
+		width: 500px;
+		.u-t-input{
+      font-size: 13px;
+			line-height: 22px;
+
+
+			input{
+        height: 20px;
+      }
+
+			.tag{
+        line-height: 20px;
+
+
+				span{
+          margin: 0;
+					float: none;
+					color: $w250;
+					font-weight: normal;
+        }
+
+				.t-u-delete{
+          vertical-align: middle;
+					margin-top: -2px;
+					cursor: pointer;
+        }
+      }
+    }
+
+		.searchResult{
+      position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: auto;
+			background-color: white;
+			border: 1px solid $w230;
+			display: none;
+			z-index: 1;
+
+			li{
+        width: calc(100% - 10px);
+				height: 20px;
+				padding: 5px;
+				line-height: 20px;
+				border-radius: 3px;
+				&[select="true"]{
+          background-color: $mainColor;
+					border-bottom: 2px solid $mainColor - rgb(50,50,50);
+					height: 18px;
+					color: $w250;
+        }
+
+				&[select="false"]{
+          background: none;
+					color: $g90;
+        }
+
+				span{
+          margin: 0 0 0 5px;
+					padding: 0;
+					color: inherit;
+        }
+
+      }
+
+    }
+
+}
