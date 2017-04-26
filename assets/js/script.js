@@ -134,7 +134,7 @@ docRoot = '/hackathon_gfi_g11/';
 var result;
 function findJobs(form)
 {
-  $("#fondNoir").show();
+  $(".windowLoad").show();
   $.ajax({
     url: docRoot+ "indexController/findJobs",
     datatype:"json",

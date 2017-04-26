@@ -94,44 +94,69 @@ form{
 }
 
 
-#fondNoir{
-	position: fixed;
-	height: 100%;
+.sectionContain{
+	position: absolute;
+	height: auto;
+	width: 700px;
+	left: 50%;
+	@include translateX(-50%);
+	top: 50px;
+
+
+	section{
+		position: relative;
+		float: left;
+		height: auto;
+		margin-bottom: 10px;
+		width: 100%;
+		box-shadow: 0 0 10px rgb(210,210,210);
+
+
+		.title{
+			position: relative;
+			float: left;
+			height: 40px;
+			line-height: 40px;
+			padding-left: 10px;
+			width: 100%;
+			font-size: 17px;
+			border-bottom: 1px solid rgb(230,230,230);
+		}
+
+		.corps{
+			position: relative;
+			float: left;
+			padding: 10px;
+		}
+	}
+}
+
+.windowLoad{
+	position: relative;
+	float: left;
+	height: auto;
 	width: 100%;
-	left: 0;
-	top: 0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: white;
+	border-radius: 3px;
+	padding: 10px;
 	display: none;
 
-	.windowLoad{
-		position: absolute;
-		left: 50%;
-		top: 50%;
+
+	.image{
+		position: relative;
+		float: left;
+		width: 100%;
 		height: auto;
-		width: 500px;
-		@include translate(-50%, -50%);
-		background-color: white;
-		border-radius: 3px;
-		box-shadow: 0 0 6px rgb(30,30,30);
+		padding: 15px 0 15px 0;
+		text-align: center;
+	}
+
+	.infos{
+		position: relative;
+		float: left;
+		width: 100%;
+		height: auto;
 		padding: 10px;
-
-
-		.image{
-			position: relative;
-			float: left;
-			width: 100%;
-			height: auto;
-			padding: 15px 0 15px 0;
-			text-align: center;
-		}
-
-		.infos{
-			position: relative;
-			float: left;
-			width: 100%;
-			height: auto;
-			padding: 10px;
-			text-align: center;
-		}
+		text-align: center;
 	}
 }
