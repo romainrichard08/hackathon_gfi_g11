@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app='gfi'>
 <head>
     <!-- Page Title -->
     <title>GFI Recherche d'offres</title>
@@ -13,9 +13,10 @@
   <link href="<?php echo base_url(); ?>assets/css/tools.css" rel="stylesheet" type="text/css">
 
     <!-- Script JS -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/angular.min.js"></script>
     <script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/angular.min.js"></script>
+
 
     <!-- Jquery Library -->
 

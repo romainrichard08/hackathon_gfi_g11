@@ -18,27 +18,29 @@ form{
 		cursor: text;
 		height: auto;
 		width: 500px;
+		min-height: 41px;
+		height: auto;
 
 
 		.u-t-input{
-      font-size: 13px;
+      font-size: 14px;
 			line-height: 22px;
 
-
 			input{
-        height: 25px;
-				line-height: 25px;
-				font-size: 14px;
+        height: 38px;
+				line-height: 38px;
+				font-size: 15px;
+				// margin-top: 1px;
       }
 
 			.tag{
-        line-height: 25px;
+        line-height: 30px;
 
 
 				span{
           margin: 0;
 					float: none;
-					color: $w250;
+					color: white;
 					font-weight: normal;
         }
 
@@ -100,16 +102,18 @@ form{
 	width: 700px;
 	left: 50%;
 	@include translateX(-50%);
-	top: 50px;
+	top: 20px;
 
 
 	section{
 		position: relative;
 		float: left;
 		height: auto;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 		width: 100%;
-		box-shadow: 0 0 10px rgb(190,190,190);
+		box-shadow: 0 0 15px rgb(10,10,10);
+		background-color: white;
+
 
 
 		.title{
@@ -120,16 +124,98 @@ form{
 			padding-left: 10px;
 			width: 100%;
 			font-size: 17px;
-			border-bottom: 1px solid rgb(230,230,230);
+			color: rgb(90,90,90);
+			background-color: rgb(245,245,245);
+			box-shadow: 0 1px 2px $w210;
+			overflow: hidden;
+			text-align: center;
 		}
 
 		.corps{
 			position: relative;
 			float: left;
-			padding: 10px;
+			padding: 5px 10px 10px 10px;
+
+
+			.footer{
+				position: relative;
+				float: left;
+				width: 100%;
+				height: auto;
+				text-align: center;
+
+				.bouton{
+					display: inline-block;
+					float: none;
+					height: 50px;
+					font-size: 17px;
+					padding-left: 17px;
+					padding-right: 17px;
+				}
+			}
+
+
+
 		}
 	}
 }
+
+#offers{
+	.offer{
+		position: relative;
+		float: left;
+		height: auto;
+		width: calc(50% - 20px);
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-bottom: 5px;
+		background-color: white;
+		box-shadow: 0 0 5px $w200;
+		border-radius: 3px;
+		overflow: hidden;
+		color: $g90;
+
+		.libelle{
+			position: relative;
+			float: left;
+			width: 100%;
+			height: auto;
+			line-height: 30px;
+			padding-left: 10px;
+			background-color: $gfi;
+			color: white;
+		}
+
+		.localisation{
+			position: relative;
+			float: left;
+			width: 100%;
+			height: auto;
+			line-height: 30px;
+			padding-left: 10px;
+		}
+
+		.competences{
+			position: relative;
+			float: left;
+			height: auto;
+			width: 100%;
+			padding: 5px;
+			text-align: center;
+
+			.tag{
+				background-color: $w230;
+				color: rgb(90,90,90);
+				border-color: rgb(100,100,100);
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+}
+
+
+
 
 .windowLoad{
 	position: relative;

@@ -4,14 +4,14 @@ class rechercheCompetence extends CI_Model
 {
 
 
-  public function search($branche, $tag){
-      $query = $this->db->query("SELECT * FROM competences where type = '".$branche."' label like '%".$tag."%' order by label limit 6");
+  public function search($tag, $branche){
+      $query = $this->db->query("SELECT * FROM competences where type = '".$branche."' and label like '%".$tag."%' order by label limit 6");
       return $query->result_array();
 
   }
 
   public function getJobsFromForm($branche, $contrat, $localisation, $competence){
-      $query = $this->db->query("SELECT offres.libelle, competences.label, offres.id
+      $query = $this->db->query("SELECT offres.libelle, competences.label, offres.id, offres.departement
                                  FROM offres, competences, competences_offre
                                  where competences_offre.id_competences = competences.id
                                  AND competences_offre.id_offres = offres.id

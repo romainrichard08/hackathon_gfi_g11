@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<div class="sectionContain">
+<div class="sectionContain" ng-controller='jobs'>
 	<section id='formulaire'>
 		<div class="title">
 			Bienvenue sur l'espace Carrières de GFI
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 		</div>
 	</section>
-	<section>
+	<section ng-if='!showJobs'>
 		<div class="windowLoad">
 			<div class="image">
 				<img src="<?php echo base_url(); ?>/assets/img/load.svg" alt="">
@@ -58,5 +58,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p>Veuillez patienter, nous recherchons des offres adaptées à vos compétences</p>
 			</div>
 		</div>
+	</section>
+	<section id='offers' ng-if='showJobs'>
+		<div class="title">
+			Offres que nous avons trouvé pour vous
+		</div>
+		<div class="corps">
+			<div class="offer" idoffer='{{offer.id}}' ng-repeat='offer in jobs track by offer.id'>
+				<div class="libelle">
+					{{offer.libelle}}
+				</div>
+				<div class="localisation">
+					Localisation: {{offer.departement}}
+				</div>
+				<div class="competences">
+					<div class='tag' ng-repeat='comp in offer.label'>
+						{{comp}}
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+	</section>
+	<section id='marginGhost'>
+
 	</section>
 </div>

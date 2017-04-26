@@ -10,7 +10,7 @@ class IndexController extends CI_Controller {
 
   public function search(){
     $this->load->model('rechercheCompetence');
-    $result = $this->rechercheCompetence->search($_POST['tag']);
+    $result = $this->rechercheCompetence->search($_POST['tag'], $_POST['branche']);
     print_r(json_encode($result));
   }
 
