@@ -15,6 +15,7 @@
     <!-- Script JS -->
     <script type="text/javascript" src='https://code.jquery.com/jquery-latest.min.js'></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/angular.min.js"></script>
 
     <!-- Jquery Library -->
 

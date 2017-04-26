@@ -26,8 +26,13 @@ class IndexController extends CI_Controller {
 
     foreach ($competences as $competence){
       $result = $this->rechercheCompetence->getJobsFromForm($branche, $contrat, $localisation, $competence);
-      array_push($offers, $result);
+      foreach ($result as $offre) {
+        array_push($offers, $offre);
+      }
     }
-    echo $offers;
+
+
+
+    echo json_encode($offers);
   }
 }

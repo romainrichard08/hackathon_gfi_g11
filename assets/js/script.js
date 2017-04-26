@@ -10,11 +10,12 @@ docRoot = '/hackathon_gfi_g11/';
 
   $('#searchJob').on('submit',function(event){
     event.preventDefault();
-    var form = [];
+    var form = {};
     form.branche = $('#branche').val();
     form.contrat = $('#contrat').val();
     form.localisation = $('#localisation').val();
-    form.competences = $("#uploadTagsValues").val();
+    var competences = $("#uploadTagsValues").val();
+    form.competences = competences.slice(0, competences.length - 1);
 
     findJobs(form);
 
@@ -143,8 +144,26 @@ function findJobs(form)
     async:false,
     success:function(data)
     {
+      result = JSON.parse(data);
+      var final_offer = [];
+
+      $.each(result, function(index, o) {
+          var good = true;
+          $.each(final_offer, function(index2, f) {
+            if(f.id == o.id){
+              good = false;
+              f.label.push(o.label);
+            }
+          });
+          if (good) {
+            o.label = [o.label];
+            final_offer.push(o);
+          }
+      });
+      console.log(final_offer);
       setTimeout(function(){
-        $("#fondNoir").hide();
+        $(".windowLoad").hide();
+        
       },3000)
     }
   });
@@ -198,7 +217,6 @@ function ajouterItemTag(item, listTag){
     list.push(item);
     var index = list.length - 1;
     var DivSize = $("#ajout-tag-wrap").outerWidth();
-    console.log(DivSize);
 
     var template = "<li id='itemTag" + index + "' class='tag'>\
               <span>" + item.label + "</span> \
@@ -231,7 +249,6 @@ function rechercheTags(text)
     async:false,
     success:function(data)
     {
-      console.log(data);
       if (data !== "") { data = JSON.parse(data)};
       result = data;
 

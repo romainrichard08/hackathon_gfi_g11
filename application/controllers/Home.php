@@ -18,8 +18,4 @@ class Home extends CI_Controller {
 		$this->load->view('form_profil');
 	}
 
-  public function test(){
-    echo 'coucou';
-  }
-
 }
