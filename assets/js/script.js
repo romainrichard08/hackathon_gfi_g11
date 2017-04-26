@@ -44,6 +44,10 @@ docRoot = '/hackathon_gfi_g11/';
 
   })
 
+  $('body').on('click', '.t-u-delete', function(event){
+    supprimerItemTag(this, event);
+  })
+
 
 
   $("#ajout-tag-wrap").click(function(){
@@ -192,13 +196,6 @@ docRoot = '/hackathon_gfi_g11/';
     return result;
   }
 
-
-
-
-
-
-
-
   function supprimerItemTag(item, event){
     event.stopPropagation();
     var id = $(item).parent().attr('id');
@@ -242,7 +239,7 @@ docRoot = '/hackathon_gfi_g11/';
 
       var template = "<li id='itemTag" + index + "' class='tag'>\
                 <span>" + item.label + "</span> \
-                <img class='t-u-delete' src='"+ docRoot + "assets/img/deleteWhite.png' onclick='supprimerItemTag(this, event)' height='18' width= '18'>\
+                <img class='t-u-delete' src='"+ docRoot + "assets/img/deleteWhite.png' height='18' width= '18'>\
               </li>";
       $(".inputTagsText").val("").width(1).before(template);
       var position = $(".inputTagsText").position().left + 10;
@@ -290,5 +287,7 @@ docRoot = '/hackathon_gfi_g11/';
 
     return test;
   }
+
+
 
 }]);
