@@ -432,26 +432,23 @@ $scope.goToConnexion = function(dataOffer, event){
 }
 
 
-$scope.goToiInscription = function(dataOffer, event){
+$scope.goToInscription = function(dataOffer, event){
   $scope.previewGlobal = true;
   $scope.preview3 = true;
-
 }
 
 
-$scope.connexion = function(dataOffer, event){
+$('body').on('submit','#connexionForm',function(event){
+  event.preventDefault();
+  var form = {};
+  form.email = $('#email').val();
+  form.motdepasse = $('#motdepasse').val();
+  $scope.$apply();
+  console.log(form);
+});
 
 
-}
-
-$scope.inscription = function(dataOffer, event){
-
-
-}
-
-
-
-$('body').on('submit','#inscription',function(event){
+$('body').on('submit','#inscriptionForm',function(event){
   event.preventDefault();
   var form = {};
   form.nom = $('#nom').val();
@@ -459,11 +456,6 @@ $('body').on('submit','#inscription',function(event){
   form.cv = $('#cv').val();
   form.email = $('#email').val();
   $scope.$apply();
-  inscriptionSubmission(form);
-})
-
-$scope.inscriptionSubmission = function(form){
-  console.log(form);
-}
+});
 
 }]);
