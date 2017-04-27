@@ -6,7 +6,7 @@
 
 		// Affiche les questions
 		foreach ($result as $row)
-		{	
+		{
 			echo "<tr><td>";
 			echo $row[0]->question;
 			echo "</td></tr>";
@@ -14,7 +14,7 @@
 			//Affiche les reponses
 			echo "<tr><td>";
 
-			foreach ($row[1] as $key => $value) 
+			foreach ($row[1] as $key => $value)
 			{
 				echo "<input type='radio' name='question".$value->id."' />";
 				echo $value->reponse;
@@ -29,5 +29,8 @@
 </table>
 </form>
 
-
-
+<style media="screen">
+	body{
+		background-color: white!important;
+	}
+</style>

@@ -19,22 +19,22 @@ class Home extends CI_Controller {
 
     public function testTechnique()
     {
-        $id_offre=1;
+        $id_offre= $_GET['idOffer'];
         $this->load->model('testTechnique');
-        //Recuperation de l'id du test grâce à l'id de l'offre         
-        $id_test = $this->testTechnique->getTestById($id_offre);  
+        //Recuperation de l'id du test grâce à l'id de l'offre
+        $id_test = $this->testTechnique->getTestById($id_offre);
         //Recuperation des questions grace à l'id de l'id de test
-        $questions = $this->testTechnique->getQuestionsById($id_test->id_test); 
+        $questions = $this->testTechnique->getQuestionsById($id_test->id_test);
 
         //Rassemble dans un tableau les questions et les réponses
         $result = [];
-        foreach ($questions as $key => $value) 
+        foreach ($questions as $key => $value)
         {
             $q = $value;
             $result[$key] = [];
             array_push($result[$key], $q);
             array_push($result[$key], $this->testTechnique->getReponsesById($value->id));
-          
+
         }
 
         $this->load->view('form_test_technique', array('result' => $result));

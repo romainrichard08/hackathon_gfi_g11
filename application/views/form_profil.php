@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="footer">
-			<a href='<?php echo base_url(); ?>/Home/testTechnique?idOffer={{dataOffer.id}}' class='bouton' design='blanc' name="button">Postuler</a>
+			<a href='<?php echo base_url(); ?>Home/testTechnique?idOffer={{dataOffer.id}}' class='bouton' design='blanc' name="button">Postuler</a>
 
 		</div>
 
