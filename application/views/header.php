@@ -24,3 +24,6 @@
     <!-- Jquery Library -->
 
 </head>
+
+
+<body ng-controller='jobs'>
