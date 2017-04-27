@@ -134,6 +134,7 @@ form{
 		.corps{
 			position: relative;
 			float: left;
+			width: 100%;
 			padding: 5px 10px 10px 10px;
 
 
@@ -161,6 +162,12 @@ form{
 }
 
 #offers{
+	.noOffer{
+		height: 80px;
+		line-height: 80px;
+		width: 100%;
+		text-align: center;
+	}
 	.offer{
 		position: relative;
 		float: left;
@@ -244,5 +251,62 @@ form{
 		height: auto;
 		padding: 10px;
 		text-align: center;
+	}
+}
+
+#popup{
+	position: absolute;
+	height: auto;
+	max-height: 800px;
+	min-height: 400px;
+	width: 800px;
+	display: none;
+	background-color: white;
+	border-radius: 3px;
+	left: 50%;
+	top: 50%;
+	z-index: 1000;
+	// border: 1px solid $w230;
+	box-shadow: 0 0 10px rgb(20,20,20);
+	@include translate(-50%, -50%);
+	overflow: hidden;
+
+	.title{
+		position: relative;
+		float: left;
+		height: 40px;
+		color: white;
+		width: 100%;
+		line-height: 40px;
+		background-color: $gfi;
+		padding-left: 5px;
+	}
+
+	.corps{
+		position: relative;
+		float: left;
+		width: 100%;
+		height: auto;
+		padding: 5px;
+		font-size: 14px;
+
+		.infos_offer{
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+
+	.footer{
+		position: relative;
+		float: left;
+		height: 50px;
+		width: 100%;
+		text-align: center;
+		border-top: 1px solid $w210;
+
+		.bouton{
+			display: inline-block;
+			vertical-align: middle;
+		}
 	}
 }

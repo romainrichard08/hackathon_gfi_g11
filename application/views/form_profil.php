@@ -64,7 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			Offres que nous avons trouvé pour vous
 		</div>
 		<div class="corps">
-			<div class="offer" idoffer='{{offer.id}}' ng-repeat='offer in jobs track by offer.id'>
+			<div ng-if='jobs.length == 0' class="noOffer">
+				Nous n'avons trouvé aucune offres correspondant à vos critères
+			</div>
+			<div class="offer" idoffer='{{offer.id}}' ng-repeat='offer in jobs track by offer.id | orderBy: "-label.length"' ng-click='openOffer(offer)'>
 				<div class="libelle">
 					{{offer.libelle}}
 				</div>
@@ -80,7 +83,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</section>
-	<section id='marginGhost'>
 
-	</section>
+	<div id="popup">
+		<div class="title">
+			{{dataOffer.libelle}}
+		</div>
+		<div class="corps">
+			<div class="infos_offer">
+				<strong>Description:</strong> {{dataOffer.description}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Metier:</strong> {{dataOffer.metier}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Contrat:</strong> {{dataOffer.contrat}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Localisation:</strong> {{dataOffer.departement}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Profil:</strong> {{dataOffer.profil}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Entité:</strong> {{dataOffer.entite}} <br>
+			</div>
+			<div class="infos_offer">
+				<strong>Expérience minimale:</strong> {{dataOffer.experience_min}} ans <br>
+			</div>
+		</div>
+		<div class="footer">
+			<a href='<?php echo base_url(); ?>/Home/testTechnique?idOffer={{dataOffer.id}}' class='bouton' design='blanc' name="button">Postuler</a>
+
+		</div>
+
+	</div>
+
+
 </div>

@@ -275,7 +275,7 @@ select{
   cursor: pointer;
   border: none;
   // box-shadow: 0 0 5px rgb(190,190,190);
-  border-bottom: 3px solid darken($gfi, 25%);
+  // border-bottom: 3px solid darken($gfi, 25%);
   font-weight: normal;
   outline: none;
   color: white;
@@ -294,7 +294,7 @@ select{
   &[design='blanc'] {
     background-color: white;
     color: $g90;
-    border: none;
+    border: 1px solid $w230;
 
     // &[state='false']:hover {
     //   background-color: $w240;
@@ -313,13 +313,13 @@ select{
     // }
 
     &:hover {
-      // background-color: $w245;
-      box-shadow: 0 0 7px rgb(170,170,170);
+      background-color: $w245;
+      // box-shadow: 0 0 7px rgb(170,170,170);
     }
 
     &:active {
-      // background-color: $w240;
-      box-shadow: 0 0 7px rgb(140,140,140);
+      background-color: $w240;
+      // box-shadow: 0 0 7px rgb(140,140,140);
     }
   }
 

@@ -11,7 +11,7 @@ class rechercheCompetence extends CI_Model
   }
 
   public function getJobsFromForm($branche, $contrat, $localisation, $competence){
-      $query = $this->db->query("SELECT offres.libelle, competences.label, offres.id, offres.departement
+      $query = $this->db->query("SELECT offres.*, competences.label
                                  FROM offres, competences, competences_offre
                                  where competences_offre.id_competences = competences.id
                                  AND competences_offre.id_offres = offres.id
