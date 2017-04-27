@@ -419,14 +419,31 @@ $scope.candidateInterface = function(dataOffer, event){
 }
 
 
+$scope.goToConnexion = function(dataOffer, event){
+  $scope.previewGlobal = true;
+  $scope.preview2 = true;
+
+}
 
 
-
-$scope.inscription = function(dataOffer, event){
+$scope.goToiIscription = function(dataOffer, event){
   $scope.previewGlobal = true;
   $scope.preview3 = true;
 
 }
+
+
+$scope.connexion = function(dataOffer, event){
+
+
+}
+
+$scope.inscription = function(dataOffer, event){
+
+
+}
+
+
 
 $('body').on('submit','#inscription',function(event){
   event.preventDefault();
