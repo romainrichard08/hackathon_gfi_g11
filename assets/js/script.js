@@ -10,6 +10,8 @@ $scope.previewGlobal = false;
 $scope.preview1 = false;
 $scope.preview2 = false;
 $scope.preview3 = false;
+docRoot = '/hackathon_gfi_g11/';
+var result;
 
 $scope.onglets = [
   {id: "form", img: "step1", etape: 1},
@@ -52,7 +54,28 @@ $scope.openOffer = function(offer, event, index){
 }
 
 
+$scope.displayTest = function(id){
+  $.ajax({
+    url: docRoot+ "OfferController/testTechnique",
+    datatype:"json",
+    method:'POST',
+    data:{idOffer: id},
+    async:false,
+    success:function(data)
+    {
+      data = JSON.parse(data);
 
+      $.each(data,function(index, el) {
+        // data[index] = [];
+        data[index] = [];
+        data[index]["questions"] = el[0];
+        data[index]["reponses"] = el[1];
+      });
+      console.log(data);
+      $scope.test_questions = data;
+    }
+  });
+}
 
 
 
@@ -94,7 +117,7 @@ $("body").on('change','#branche',function() {
 });
 
 
-docRoot = 'http://hackathon.localhost/';
+
 
 $('body').on('submit','#searchJob',function(event){
   event.preventDefault();
@@ -225,7 +248,6 @@ $("body").on('keyup','.inputTagsText',function(event){
 
 })
 
-var result;
 function findJobs(form)
 {
   $(".windowLoad").show();
@@ -258,7 +280,7 @@ function findJobs(form)
         $scope.jobs = final_offer;
         $scope.showJobs = true;
         $scope.$apply();
-      },000);
+      },2000);
     }
   });
   return result;

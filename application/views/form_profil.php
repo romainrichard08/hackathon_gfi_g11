@@ -321,17 +321,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<form method="POST" action="#">
 					<div class="question" ng-repeat='ques in test_questions'>
 						<div class="q-title">
-							{{$index}} - {{ques.question}}
+							{{$index}} - {{ques.questions.question}}
 						</div>
 
 						<div class="reponses">
-							<div class="reponse" ng-repeat='rep in questions.reponses'>
-								--- {{rep.reponse}}
+							<div class="reponse" ng-repeat='rep in ques.reponses'>
+								<input type='radio' name='{{rep.id_question}}'  >
+							 	{{rep.reponse}}
 							</div>
 						</div>
 					</div>
+
 				</form>
       </div>
+			<div class="footer">
+				<div class="footer">
+					<button type="submit" class='bouton' design='orange' value="sinscrire">VALIDER LE FORMULAIRE</button>
+				</div>
+			</div>
     </div>
   </section>
 
