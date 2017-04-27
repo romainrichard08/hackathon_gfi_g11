@@ -241,7 +241,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div><!--
         --><div class="form-content">
               <label>Mot de passe:</label>
-              <input type="text" id="motdepasse" class="input-form" />
+              <input type="password" id="motdepasse" class="input-form" />
+            </div>
+            <div class="form-content">
+              <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
             </div>
           <div class="footer">
             <button class='bouton' design='orange'>Inscription</button>

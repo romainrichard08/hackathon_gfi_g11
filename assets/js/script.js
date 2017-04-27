@@ -437,6 +437,7 @@ $('body').on('submit','#connexionForm',function(event){
   var form = {};
   form.email = $('#email').val();
   form.motdepasse = $('#motdepasse').val();
+  form.dataOffer = $('#dataOffer').val();
   $scope.$apply();
   console.log(form);
 });
