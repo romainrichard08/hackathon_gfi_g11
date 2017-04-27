@@ -7,6 +7,8 @@ $scope.showJobs = false;
 $scope.dataOffer;
 $scope.etape = 1;
 $scope.preview = false;
+$scope.preview2 = false;
+$scope.preview3 = false;
 
 $scope.onglets = [
   {id: "form", img: "step1", etape: 1},
@@ -16,14 +18,20 @@ $scope.onglets = [
   {id: "results", img: "step5", etape: 5},
 ]
 
+$scope.closePreview(){
+  $scope.preview = false;
+  $scope.preview2 = false;
+  $scope.preview3 = false;
+}
+
 
 $scope.changeView = function(onglet, event){
   if ($scope.preview && onglet.etape == $scope.etape) {
-    $scope.preview = false;
+    $scope.closePreview()
   }
   else if(onglet.etape < $scope.etape){
     $scope.etape = onglet.etape;
-    $scope.preview = false;
+    $scope.closePreview()
   }
 }
 
@@ -32,7 +40,7 @@ $scope.openOffer = function(offer, event, index){
   event.stopPropagation();
   $scope.dataOffer = offer;
   $scope.dataOffer.index = index;
-  $scope.preview = true;
+  $scope.closePreview()
 }
 
 
@@ -329,8 +337,6 @@ function rechercheTags(branche, text)
     {
       if (data !== "") { data = JSON.parse(data)};
       result = data;
-      console.log(result)
-
     }
   });
   return result;
@@ -372,7 +378,7 @@ $("body").on('click','.offer',function(){
 });
 
 $scope.inscription = function(dataOffer, event){
-  $scope.preview = false;
+  $scope.closePreview();
   $scope.etape = 3;
   var dataOffer = dataOffer;
 
