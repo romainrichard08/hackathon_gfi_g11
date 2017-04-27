@@ -199,7 +199,7 @@ docRoot = '/hackathon_gfi_g11/';
           $scope.jobs = final_offer;
           $scope.showJobs = true;
           $scope.$apply();
-        },000);
+        },2000);
       }
     });
     return result;
