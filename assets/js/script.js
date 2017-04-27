@@ -6,6 +6,7 @@ $scope.jobs = [];
 $scope.showJobs = false;
 $scope.dataOffer;
 $scope.etape = 1;
+$scope.preview = false;
 
 $scope.onglets = [
   {id: "form", img: "step1", etape: 1},
@@ -17,13 +18,22 @@ $scope.onglets = [
 
 
 $scope.changeView = function(onglet, event){
-  if(onglet.etape < $scope.etape){
+  if ($scope.preview && onglet.etape == $scope.etape) {
+    $scope.preview = false;
+  }
+  else if(onglet.etape < $scope.etape){
     $scope.etape = onglet.etape;
+    $scope.preview = false;
   }
 }
 
 
-
+$scope.openOffer = function(offer, event, index){
+  event.stopPropagation();
+  $scope.dataOffer = offer;
+  $scope.dataOffer.index = index;
+  $scope.preview = true;
+}
 
 
 
@@ -89,13 +99,7 @@ $('body').on('click', '.t-u-delete', function(event){
   supprimerItemTag(this, event);
 })
 
-$("#popup").click(function(event){
-  event.stopPropagation();
-})
 
-$('body').on('click',function(){
-  $('#popup').hide();
-})
 
 
 
@@ -246,13 +250,6 @@ function findJobs(form)
 }
 
 
-$scope.openOffer = function(offer, event){
-  event.stopPropagation();
-  $scope.dataOffer = offer;
-  $("#popup").show();
-}
-
-
 
 
 
@@ -372,7 +369,33 @@ $("body").on('click','.offer',function(){
       $('#offer').css('display', 'block');
     }
   });
+});
 
-  });
+$scope.inscription = function(dataOffer, event){
+  $scope.etape = 3;
+
+  var dataOffer = dataOffer;
+
+  //alert(dataOffer);
+
+  $('#popup').css('display', 'none');
+
+
+  $('body').on('submit','#inscription',function(event){
+    event.preventDefault();
+    var form = {};
+    form.nom = $('#nom').val();
+    form.prenom = $('#prenom').val();
+    form.cv = $('#cv').val();
+    form.email = $('#email').val();
+    $scope.$apply();
+    inscriptionSubmission(form);
+  })
+}
+
+function inscriptionSubmission(form){
+  console.log(form);
+
+}
 
 }]);
