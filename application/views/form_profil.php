@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 
   <div>
-    <p>Profil: {{dataOffer.profil}}/p>
+    <p>Profil: {{dataOffer.profil}}</p>
   </div>
 
   <div>

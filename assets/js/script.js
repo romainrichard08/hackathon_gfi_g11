@@ -307,7 +307,7 @@ docRoot = '/hackathon_gfi_g11/';
         $scope.dataOffer = data;
         $scope.$apply();
 
-        .$("#offer").(html)
+        $('#offer').css('display', 'block');
       }
     });
 
