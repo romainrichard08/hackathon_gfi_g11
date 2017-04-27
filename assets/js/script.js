@@ -372,8 +372,8 @@ $("body").on('click','.offer',function(){
 });
 
 $scope.inscription = function(dataOffer, event){
+  $scope.preview = false;
   $scope.etape = 3;
-
   var dataOffer = dataOffer;
 
   //alert(dataOffer);
@@ -393,9 +393,8 @@ $scope.inscription = function(dataOffer, event){
   })
 }
 
-function inscriptionSubmission(form){
+$scope.inscriptionSubmission = function(form){
   console.log(form);
-
 }
 
 }]);
