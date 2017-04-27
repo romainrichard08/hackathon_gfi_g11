@@ -19,6 +19,7 @@ aside{
 	height: 100%;
 	background-color: $gfi;
 	padding: 20px 0 20px 0;
+	z-index: 1000;
 
 	ul.onglets{
 		position: relative;
@@ -47,8 +48,8 @@ aside{
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				height: 70px;
-				width: 70px;
+				height: 50%;
+				width: auto;
 
 				@include translate(-50%, -50%);
 			}
@@ -153,21 +154,27 @@ aside{
 
 
 	section{
-		position: relative;
-		float: left;
+		position: absolute;
+		left: 0;
+		top: 0;
 		height: 100%;
-		margin-bottom: 5px;
 		width: 100%;
 		background-color: white;
+		padding: 50px 50px 0 50px;
+		@include transition(all, 0.4s);
 
-
+		&[state='false']{
+			@include translateX(0%);
+		}
+		&[state='true']{
+			@include translateX(-100%);
+		}
 
 		.title{
 			position: relative;
 			float: left;
-			height: 100px;
+			height: 50px;
 			width: 100%;
-			padding: 50px 50px 0 50px;
 
 			.wrap{
 				position: relative;
@@ -212,7 +219,7 @@ aside{
 				float: left;
 				height: auto;
 				width: 100%;
-				padding: 70px 30px 0 30px;
+				padding: 70px 0px 0 0px;
 				max-height: calc(100% - 130px);
 				margin-bottom: 50px;
 
@@ -261,9 +268,6 @@ aside{
 					  background-color: $gfi;
 					  margin-bottom: 2px;
 					  background-image: none;
-						-webkit-appearance: none;
-						-moz-appearance: none;
-						appearance: none;
 
 					}
 				}
@@ -288,61 +292,87 @@ aside{
 }
 
 #offers{
+
+
 	.noOffer{
 		height: 80px;
 		line-height: 80px;
 		width: 100%;
 		text-align: center;
 	}
-	.offer{
+	.offer-wrap{
 		position: relative;
 		float: left;
-		height: auto;
-		width: calc(50% - 20px);
-		margin-top: 5px;
-		margin-left: 10px;
-		margin-bottom: 5px;
-		background-color: white;
-		box-shadow: 0 0 5px $w200;
-		border-radius: 3px;
+		height: 180px;
+		width: calc(100% / 3);
+		padding: 10px;
 		overflow: hidden;
-		color: $g90;
 		cursor: pointer;
+		margin-top: 30px;
 
-		.libelle{
+		.offer{
 			position: relative;
 			float: left;
-			width: 100%;
+			background-color: white;
+			border: 1px solid $gfi;
 			height: auto;
-			line-height: 30px;
-			padding-left: 10px;
-			background-color: $gfi;
-			color: white;
-		}
-
-		.localisation{
-			position: relative;
-			float: left;
+			color: $g90;
 			width: 100%;
-			height: auto;
-			line-height: 30px;
-			padding-left: 10px;
-		}
+			font-size: 13px;
 
-		.competences{
-			position: relative;
-			float: left;
-			height: auto;
-			width: 100%;
-			padding: 5px;
-			text-align: center;
+			.libelle{
+				position: relative;
+				float: left;
+				width: 100%;
+				height: auto;
+				padding: 10px 5px 5px 10px;
+				overflow-x: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: $gfi;
+				font-size: 15px;
+				font-style: italic;
+				font-weight: bold;
+			}
 
-			.tag{
-				background-color: $w230;
-				color: rgb(90,90,90);
-				border-color: rgb(100,100,100);
-				display: inline-block;
-				float: none;
+			.localisation, .duree{
+				position: relative;
+				float: left;
+				width: 100%;
+				height: auto;
+				font-size: 14px;
+				line-height: 30px;
+				padding-left: 10px;
+			}
+
+			.competences{
+				position: relative;
+				float: left;
+				height: auto;
+				width: 100%;
+				padding: 5px;
+				text-align: center;
+				overflow-x: auto;
+				white-space: nowrap;
+
+				.tag{
+					background-color: $w230;
+					color: rgb(90,90,90);
+					border-color: rgb(100,100,100);
+					display: inline-block;
+					float: none;
+				}
+			}
+
+			.footer{
+				position: relative;
+				float: left;
+				background-color: $gfi;
+				color: white;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				font-size: 12px;
 			}
 		}
 	}
@@ -381,59 +411,6 @@ aside{
 	}
 }
 
-#popup{
-	position: absolute;
-	height: auto;
-	max-height: 800px;
-	min-height: 300px;
-	width: 800px;
-	display: none;
-	background-color: white;
-	border-radius: 3px;
-	left: 50%;
-	top: 50%;
-	z-index: 1000;
-	// border: 1px solid $w230;
-	box-shadow: 0 0 10px rgb(20,20,20);
-	@include translate(-50%, -50%);
-	overflow: hidden;
-
-	.title{
-		position: relative;
-		float: left;
-		height: 40px;
-		color: white;
-		width: 100%;
-		line-height: 40px;
-		background-color: $gfi;
-		padding-left: 5px;
-	}
-
-	.corps{
-		position: relative;
-		float: left;
-		width: 100%;
-		height: auto;
-		padding: 5px;
-		font-size: 14px;
-
-		.infos_offer{
-			width: 100%;
-			margin-bottom: 5px;
-		}
-	}
-
-	.footer{
-		position: relative;
-		float: left;
-		height: 50px;
-		width: 100%;
-		text-align: center;
-		border-top: 1px solid $w210;
-
-		.bouton{
-			display: inline-block;
-			vertical-align: middle;
-		}
-	}
+#offer-window{
+	left: 100%;
 }
