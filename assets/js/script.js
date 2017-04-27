@@ -6,7 +6,8 @@ $scope.jobs = [];
 $scope.showJobs = false;
 $scope.dataOffer;
 $scope.etape = 1;
-$scope.preview = false;
+$scope.previewGlobal = false;
+$scope.preview1 = false;
 $scope.preview2 = false;
 $scope.preview3 = false;
 
@@ -19,14 +20,19 @@ $scope.onglets = [
 ]
 
 $scope.closePreview = function(){
-  $scope.preview = false;
+  $scope.previewGlobal = false;
+  $scope.preview1 = false;
   $scope.preview2 = false;
   $scope.preview3 = false;
 }
 
 
 $scope.changeView = function(onglet, event){
-  if ($scope.preview && onglet.etape == $scope.etape) {
+  if ($scope.previewGlobal && onglet.etape == $scope.etape) {
+    $scope.closePreview();
+  }
+  else if (onglet.etape == 2 && onglet.etape > $scope.etape && $scope.jobs.length > 0) {
+    $scope.etape = onglet.etape;
     $scope.closePreview();
   }
   else if(onglet.etape < $scope.etape){
@@ -39,8 +45,9 @@ $scope.changeView = function(onglet, event){
 $scope.openOffer = function(offer, event, index){
   event.stopPropagation();
   $scope.dataOffer = offer;
+  $scope.previewGlobal = true;
+  $scope.preview1 = true;
   $scope.dataOffer.index = index;
-  $scope.closePreview()
 }
 
 
@@ -245,7 +252,6 @@ function findJobs(form)
             final_offer.push(o);
           }
       });
-      console.log(final_offer);
       setTimeout(function(){
         $(".windowLoad").hide();
         $scope.jobs = final_offer;
@@ -377,10 +383,8 @@ $("body").on('click','.offer',function(){
   });
 });
 
-$scope.inscription = function(dataOffer, event){
+$scope.candidateInterface = function(dataOffer, event){
   $scope.closePreview();
-  $scope.candidateInterface = function(dataOffer, event){
-  }
 
   $scope.etape = 3;
   var dataOffer = dataOffer;
@@ -396,18 +400,21 @@ $scope.inscription = function(dataOffer, event){
 
 
 $scope.inscription = function(dataOffer, event){
+  $scope.previewGlobal = true;
+  $scope.preview3 = true;
 
-  $('body').on('submit','#inscription',function(event){
-    event.preventDefault();
-    var form = {};
-    form.nom = $('#nom').val();
-    form.prenom = $('#prenom').val();
-    form.cv = $('#cv').val();
-    form.email = $('#email').val();
-    $scope.$apply();
-    inscriptionSubmission(form);
-  })
 }
+
+$('body').on('submit','#inscription',function(event){
+  event.preventDefault();
+  var form = {};
+  form.nom = $('#nom').val();
+  form.prenom = $('#prenom').val();
+  form.cv = $('#cv').val();
+  form.email = $('#email').val();
+  $scope.$apply();
+  inscriptionSubmission(form);
+})
 
 $scope.inscriptionSubmission = function(form){
   console.log(form);

@@ -173,6 +173,10 @@ aside{
 			@include translateX(-100%);
 		}
 
+		&[slide]{
+			left: 100%;
+		}
+
 		.title{
 			position: relative;
 			float: left;
@@ -414,7 +418,6 @@ aside{
 }
 
 #offer-window{
-	left: 100%;
 
 	.infos_wrapper{
 		position: relative;

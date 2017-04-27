@@ -2,16 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<aside state='{{preview}}'>
+<aside>
 	<ul class='onglets'>
 		<li class='onglet'
 		ng-repeat='onglet in onglets'
 		state='{{etape == onglet.etape?"true":"false"}}'
 		ng-click='changeView(onglet, $event)'
 		ng-cloak>
-			<img ng-hide='preview && etape == onglet.etape' src="<?php echo base_url(); ?>assets/img/{{onglet.img}}{{etape == onglet.etape?'-orange':''}}.png" alt="">
-			<img ng-show="preview && etape == onglet.etape" src="<?php echo base_url(); ?>assets/img/arrow-back-orange.png" alt="">
-		</li>
+			<img ng-hide='previewGlobal && etape == onglet.etape' src="<?php echo base_url(); ?>assets/img/{{onglet.img}}{{etape == onglet.etape?'-orange':''}}.png" alt="">
+			<img ng-show="previewGlobal && etape == onglet.etape" src="<?php echo base_url(); ?>assets/img/arrow-back-orange.png" alt="">
 	</ul>
 
 </aside>
@@ -68,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					        </ul>
 					    </div>
-					    <input id='uploadTagsValues' type='text' name='tags' style='display:none;'>
+					    <input id='uploadTagsValues' value='38/' type='text' name='tags' style='display:none;'>
 						</div>
 					</div>
 
@@ -80,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</form>
 		</div>
 	</section>
-	<section id='offers' ng-if='etape == 2' state='{{preview}}'>
+	<section id='offers' ng-if='etape == 2' state='{{preview1}}'>
 		<div class="title">
 			<div class="wrap">
 				<div class="etape">
@@ -129,7 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</section>
-	<section id="offer-window" state='{{preview}}'>
+
+
+	<section id="offer-window" slide state='{{preview1}}'>
 		<div class="title">
 			<div class="wrap">
 				<div class="etape">
@@ -186,7 +187,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-  <section id="candidateInterface" ng-if='etape == 3'>
+  <section id="candidateInterface" ng-if='etape == 3' state='{{preview2 || preview3}}'>
     <div class="title">
       <div class="wrap">
         <div class="etape">
@@ -219,7 +220,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-<section id='connexion' ng-if='etape == 4'>
+<section id='connexion' slide state='{{preview2}}'>
     <div class="title">
       <div class="wrap">
         <div class="etape">
@@ -263,7 +264,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-	<section id='inscription' ng-if='etape == 4'>
+	<section id='inscription' slide state='{{preview3}}'>
     <div class="title">
       <div class="wrap">
         <div class="etape">
