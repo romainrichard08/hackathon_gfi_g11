@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  <option value="CDI">CDI</option>
 					  <option value="CDD">CDD</option>
 					  <option value="Stage">Stage</option>
-					  <option value="Alternance">Stage</option>
+					  <option value="Alternance">Alternance</option>
 					</select><br>
 
 					<label class='label'>Ou êtes-vous ?</label>
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div ng-if='jobs.length == 0' class="noOffer">
 				Nous n'avons trouvé aucune offres correspondant à vos critères
 			</div>
-			<div class="offer" idoffer='{{offer.id}}' ng-repeat='offer in jobs track by offer.id | orderBy: "-label.length"' ng-click='openOffer(offer)'>
+			<div class="offer" idoffer='{{offer.id}}' ng-repeat='offer in jobs track by offer.id | orderBy: "-label.length"' ng-click='openOffer(offer, $event)'>
 				<div class="libelle">
 					{{offer.libelle}}
 				</div>

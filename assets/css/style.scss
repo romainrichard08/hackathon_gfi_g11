@@ -181,6 +181,7 @@ form{
 		border-radius: 3px;
 		overflow: hidden;
 		color: $g90;
+		cursor: pointer;
 
 		.libelle{
 			position: relative;
@@ -258,7 +259,7 @@ form{
 	position: absolute;
 	height: auto;
 	max-height: 800px;
-	min-height: 400px;
+	min-height: 300px;
 	width: 800px;
 	display: none;
 	background-color: white;

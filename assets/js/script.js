@@ -49,6 +49,14 @@ docRoot = '/hackathon_gfi_g11/';
     supprimerItemTag(this, event);
   })
 
+  $("#popup").click(function(event){
+    event.stopPropagation();
+  })
+
+  $('body').on('click',function(){
+    $('#popup').hide();
+  })
+
 
 
   $("#ajout-tag-wrap").click(function(){
@@ -198,7 +206,8 @@ docRoot = '/hackathon_gfi_g11/';
   }
 
 
-  $scope.openOffer = function(offer){
+  $scope.openOffer = function(offer, event){
+    event.stopPropagation();
     $scope.dataOffer = offer;
     $("#popup").show();
   }
