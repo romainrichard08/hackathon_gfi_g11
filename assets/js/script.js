@@ -18,7 +18,7 @@ $scope.onglets = [
   {id: "results", img: "step5", etape: 5},
 ]
 
-$scope.closePreview(){
+$scope.closePreview = function(){
   $scope.preview = false;
   $scope.preview2 = false;
   $scope.preview3 = false;
@@ -27,11 +27,11 @@ $scope.closePreview(){
 
 $scope.changeView = function(onglet, event){
   if ($scope.preview && onglet.etape == $scope.etape) {
-    $scope.closePreview()
+    $scope.closePreview();
   }
   else if(onglet.etape < $scope.etape){
     $scope.etape = onglet.etape;
-    $scope.closePreview()
+    $scope.closePreview();
   }
 }
 
