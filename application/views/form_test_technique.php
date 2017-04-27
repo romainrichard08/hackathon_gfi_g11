@@ -1,9 +1,9 @@
 <h1>Test technique</h1>
 
-<form>
+<form method="POST" action="#">
+<input type="hidden" name="question" value="">
 <table>
 	<?php
-
 		// Affiche les questions
 		foreach ($result as $row)
 		{
@@ -16,14 +16,14 @@
 
 			foreach ($row[1] as $key => $value)
 			{
-				echo "<input type='radio' name='question".$value->id."' />";
+				echo "<input type='radio' name='question".$value->id_question."' value='".$value->reponse."' />";
 				echo $value->reponse;
 			}
 			echo "</td></tr>";
 		}
 	?>
 	<tr><td>
-	<button type='submit' value='Valider le test'>Valider le test</button>
+	<button type="submit">Valider le test</button>
 	</td></tr>
 
 </table>

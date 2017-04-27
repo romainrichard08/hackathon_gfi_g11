@@ -27,7 +27,7 @@ class testTechnique extends CI_Model
   }
 
 
-   public function getReponsesById($id_question)
+  public function getReponsesById($id_question)
   {
 		$query = $this->db->select('*')
       					->from('reponses')
@@ -37,6 +37,20 @@ class testTechnique extends CI_Model
 		return $query->result();
 
   } 
+
+  public function getReponsesCorrect($id_question)
+  {
+    
+    $query = $this->db->select('*')
+                ->from('reponses')
+                ->where('id_question', $id_question)
+                ->where('correct', 1);
+
+    $query = $this->db->get();
+    return $query->result();
+
+  } 
+
 
 }
 

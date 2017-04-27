@@ -94,7 +94,7 @@ $("body").on('change','#branche',function() {
 });
 
 
-docRoot = '/hackathon_gfi_g11/';
+docRoot = 'http://hackathon.localhost/';
 
 $('body').on('submit','#searchJob',function(event){
   event.preventDefault();
