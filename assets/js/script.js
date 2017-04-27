@@ -4,6 +4,7 @@ MainApp.controller('jobs', ['$scope', function ($scope) {
 
 $scope.jobs = [];
 $scope.showJobs = false;
+$scope.dataOffer;
 
 listResultTag = ""; // stocker les tag recus
 listTagSelected = []; // stocker la liste de tag a envoyer
@@ -190,7 +191,7 @@ docRoot = '/hackathon_gfi_g11/';
           $scope.jobs = final_offer;
           $scope.showJobs = true;
           $scope.$apply();
-        },2000);
+        },000);
       }
     });
     return result;
@@ -287,6 +288,30 @@ docRoot = '/hackathon_gfi_g11/';
 
     return test;
   }
+
+  $("body").on('click','.offer',function(){
+    idOffer = $(this).attr('idOffer');
+
+    $.ajax({
+      url: docRoot+ "OfferController/index",
+      datatype:"json",
+      method:'POST',
+      data:{idOffer: idOffer},
+      async:false,
+      success:function(data)
+      {
+        console.log(data);
+        if (data !== "") {
+          data = JSON.parse(data)
+        };
+        $scope.dataOffer = data;
+        $scope.$apply();
+
+        .$("#offer").(html)
+      }
+    });
+
+    });
 
 
 

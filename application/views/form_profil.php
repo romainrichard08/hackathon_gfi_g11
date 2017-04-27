@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			        </ul>
 			    </div>
-			    <input id='uploadTagsValues' type='text' name='tags' style='display:none;'>
+			    <input id='uploadTagsValues' value='1/' type='text' name='tags' style='display:none;'>
 					<br> <br>
 					<div class="footer">
 						<button type="submit" class='bouton' design='orange' value="Rechercher">Rechercher</button>
@@ -80,7 +80,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</section>
-	<section id='marginGhost'>
+	<section id="offer" style="display:none;">
+  <div>
 
-	</section>
+  <div>
+    <p>Libellé: {{dataOffer.libelle}}</p>
+  </div>
+
+  <div>
+    <p>Description: {{dataOffer.description}}</p>
+  </div>
+
+  <div>
+    <p>Metier: {{dataOffer.metier}}</p>
+  </div>
+
+  <div>
+    <p>Contrat: {{dataOffer.contrat}}</p>
+  </div>
+
+  <div>
+    <p>Departement: {{dataOffer.departement}}</p>
+  </div>
+
+  <div>
+    <p>Profil: {{dataOffer.profil}}/p>
+  </div>
+
+  <div>
+    <p>Entite: {{dataOffer.entite}}</p>
+  </div>
+
+  <div>
+    <p>Expérience mini: {{dataOffer.experience_min}}</p>
+  </div>
+
+  <div>
+    <button type="button">POSTULER !</button>
+  </div>
+
+</div></section>
 </div>

@@ -8,10 +8,6 @@ class offerModel extends CI_Model {
   }
 
 
-
-
-
-
 }
 
 
