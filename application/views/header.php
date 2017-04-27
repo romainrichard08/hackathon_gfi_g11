@@ -11,6 +11,9 @@
 	<!-- Styles -->
 	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url(); ?>assets/css/tools.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url(); ?>assets/css/test.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url(); ?>assets/css/inscription.css" rel="stylesheet" type="text/css">
+
 
     <!-- Script JS -->
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/angular.min.js"></script>
