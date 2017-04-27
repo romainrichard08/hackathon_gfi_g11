@@ -4,7 +4,7 @@ listResultTag = ""; // stocker les tag recus
 listTagSelected = []; // stocker la liste de tag a envoyer
 resultSelected = 0;
 
-docRoot = '/hackathon_gfi_g11/';
+docRoot = 'http://hackathon.localhost/';
 
 
 
