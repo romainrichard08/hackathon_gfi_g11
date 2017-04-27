@@ -5,9 +5,11 @@ class OfferController extends CI_Controller {
 
   public function index() {
     $this->load->model('offerModel');
-    //$idOffer = 1;
+    $idOffer = $_POST["idOffer"];
     $datasOffer = $this->offerModel->getDatasOffer($idOffer);
-    $this->load->view('offer', array('datasOffer' => $datasOffer));
+    echo json_encode($datasOffer);
+/*    die;
+    $this->load->view('offer', array('datasOffer' => $datasOffer));*/
   }
 
 }
