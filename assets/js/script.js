@@ -426,7 +426,7 @@ $scope.goToConnexion = function(dataOffer, event){
 }
 
 
-$scope.goToiIscription = function(dataOffer, event){
+$scope.goToiInscription = function(dataOffer, event){
   $scope.previewGlobal = true;
   $scope.preview3 = true;
 
