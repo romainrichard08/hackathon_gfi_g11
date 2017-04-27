@@ -293,7 +293,6 @@ aside{
 
 #offers{
 
-
 	.noOffer{
 		height: 80px;
 		line-height: 80px;
@@ -413,4 +412,59 @@ aside{
 
 #offer-window{
 	left: 100%;
+
+	.infos_wrapper{
+		position: relative;
+		float: left;
+		height: auto;
+		width: 100%;
+		margin-top: 50px;
+		color: $g90;
+		padding-bottom: 20px;
+
+		.description{
+			position: relative;
+			float: left;
+			width: 100%;
+			border: 1px solid $gfi;
+
+			.d-title{
+				position: relative;
+				float: left;
+				height: 40px;
+				line-height: 40px;
+				padding-left: 10px;
+				font-size: 18px;
+				color: $gfi;
+			}
+
+			.d-content{
+				position: relative;
+				float: left;
+				height: auto;
+				width: 100%;
+				padding: 5px 10px 10px 10px;
+				font-size: 15px;
+			}
+		}
+
+		.i-infos{
+			position: relative;
+			float: left;
+			width: 100%;
+			height: auto;
+			padding: 10px;
+			margin-top: 10px;
+			border-bottom: 1px solid $w230;
+
+			.infos_offer{
+				position: relative;
+				float: left;
+				height: auto;
+				line-height: 25px;
+				width: 100%;
+			}
+		}
+
+	}
 }

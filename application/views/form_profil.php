@@ -143,26 +143,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="corps">
 			<div class="infos_wrapper">
-				<div class="infos_offer">
-					<strong>Description:</strong> {{dataOffer.description}} <br>
+				<div class="description">
+					<div class='d-title'>
+						Description
+					</div>
+					<div class="d-content">
+						{{dataOffer.description}}
+					</div>
 				</div>
-				<div class="infos_offer">
-					<strong>Metier:</strong> {{dataOffer.metier}} <br>
+				<div class="i-infos">
+					<div class="infos_offer">
+						<strong>Metier:</strong> {{dataOffer.metier}} <br>
+					</div>
+					<div class="infos_offer">
+						<strong>Contrat:</strong> {{dataOffer.contrat}} <br>
+					</div>
+					<div class="infos_offer">
+						<strong>Ville:</strong> {{dataOffer.departement}} <br>
+					</div>
+					<div class="infos_offer">
+						<strong>Profil:</strong> {{dataOffer.profil}} <br>
+					</div>
+					<div class="infos_offer">
+						<strong>Expérience minimale:</strong> {{dataOffer.experience_min}} ans <br>
+					</div>
 				</div>
-				<div class="infos_offer">
-					<strong>Contrat:</strong> {{dataOffer.contrat}} <br>
-				</div>
-				<div class="infos_offer">
-					<strong>Localisation:</strong> {{dataOffer.departement}} <br>
-				</div>
-				<div class="infos_offer">
-					<strong>Profil:</strong> {{dataOffer.profil}} <br>
-				</div>
-				<div class="infos_offer">
-					<strong>Entité:</strong> {{dataOffer.entite}} <br>
-				</div>
-				<div class="infos_offer">
-					<strong>Expérience minimale:</strong> {{dataOffer.experience_min}} ans <br>
+				<div class="description">
+					<div class='d-title'>
+						Entité
+					</div>
+					<div class="d-content">
+						{{dataOffer.entite}}
+					</div>
 				</div>
 			</div>
 			<div class="footer">
