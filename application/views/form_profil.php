@@ -233,18 +233,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <div class="corps">
-      <form id='inscription' method="post" enctype="multipart/form-data">
+      <form id='connexionForm' method="post" enctype="multipart/form-data">
           <div class="form-wrap">
             <div class="form-content">
               <label>Email:</label>
-              <input type="text" id="email" class="input-form"/>
+              <input type="text" id="email" class="input-form" />
             </div><!--
         --><div class="form-content">
               <label>Mot de passe:</label>
-              <input type="password" id="prenom" class="input-form" />
+              <input type="text" id="motdepasse" class="input-form" />
             </div>
           <div class="footer">
-            <button class='bouton' design='orange' id="connexion" ng-click='connexion(dataOffer, $event)' >Inscription</button>
+            <button class='bouton' design='orange'>Inscription</button>
           </div>
         </div>
       </form>
@@ -269,7 +269,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <div class="corps">
-		  <form id='inscription' method="post" enctype="multipart/form-data">
+		  <form id='inscriptionForm' method="post" enctype="multipart/form-data">
 		      <div class="form-wrap">
 		        <div class="form-content">
 		          <label>Nom:</label>
@@ -288,7 +288,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		          <input type="text" id="email" />
 		        </div>
 		      <div class="footer">
-		        <button class='bouton' design='orange' id="inscription" ng-click='inscription(dataOffer, $event)' >Inscription</button>
+		        <button class='bouton' design='orange' id="inscriptionButton" ng-click='inscription(dataOffer, $event)' >Inscription</button>
 		      </div>
 		    </div>
 		  </form>
