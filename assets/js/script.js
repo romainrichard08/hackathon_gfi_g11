@@ -24,6 +24,7 @@ $scope.closePreview = function(){
   $scope.preview1 = false;
   $scope.preview2 = false;
   $scope.preview3 = false;
+  $(".sectionContain").scrollTop(0);
 }
 
 
@@ -257,7 +258,7 @@ function findJobs(form)
         $scope.jobs = final_offer;
         $scope.showJobs = true;
         $scope.$apply();
-      },2000);
+      },000);
     }
   });
   return result;

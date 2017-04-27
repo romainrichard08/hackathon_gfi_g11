@@ -304,6 +304,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </section>
 
 
+	<section id="candidateInterface" ng-if='etape == 4'>
+    <div class="title">
+      <div class="wrap">
+        <div class="etape">
+          Etape <br>
+          {{etape}} sur 5
+        </div>
+        <div class="text">
+          Test de compétences techniques
+        </div>
+      </div>
+    </div>
+    <div class="corps">
+      <div class="test-wrap">
+				<form method="POST" action="#">
+					<div class="question" ng-repeat='ques in test_questions'>
+						<div class="q-title">
+							{{$index}} - {{ques.question}}
+						</div>
+
+						<div class="reponses">
+							<div class="reponse" ng-repeat='rep in questions.reponses'>
+								--- {{rep.reponse}}
+							</div>
+						</div>
+					</div>
+				</form>
+      </div>
+    </div>
+  </section>
+
 
 
 </div>
