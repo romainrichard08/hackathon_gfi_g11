@@ -10,6 +10,8 @@ $scope.previewGlobal = false;
 $scope.preview1 = false;
 $scope.preview2 = false;
 $scope.preview3 = false;
+
+$scope.testFormData = [];
 docRoot = '/hackathon_gfi_g11/';
 var result;
 
@@ -70,12 +72,16 @@ $scope.displayTest = function(id){
         data[index] = [];
         data[index]["questions"] = el[0];
         data[index]["reponses"] = el[1];
+        $scope.testFormData.push({})
       });
       console.log(data);
       $scope.test_questions = data;
     }
   });
 }
+
+
+$scope.displayTest(1);
 
 
 
