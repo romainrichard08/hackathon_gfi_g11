@@ -178,13 +178,92 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 			<div class="footer">
-				<button id="postuler" dataOffer='{{dataOffer.id}}' class='bouton' design='blanc' ng-click='inscription(dataOffer, $event)'>POSTULER A CE POSTE</button>
+				<button id="postuler" dataOffer='{{dataOffer.id}}' class='bouton' design='orange' ng-click='candidateInterface(dataOffer, $event)'>POSTULER A CE POSTE</button>
 			</div>
 		</div>
-
 	</section>
 
-	<section id='inscription' ng-if='etape == 3'>
+
+
+
+  <section id="candidateInterface" ng-if='etape == 3'>
+    <div class="title">
+      <div class="wrap">
+        <div class="etape">
+          Etape <br>
+          {{etape}} sur 5
+        </div>
+        <div class="text">
+          Espace de connexion
+        </div>
+      </div>
+    </div>
+    <div class="corps">
+      <div class="wrap">
+        <div class="connexion">
+          <h2>Connexion</h2>
+          <h3>Vous êtes déjà inscrit?</h3>
+          <button class='bouton' design='orange' id="connexion" dataOffer='{{dataOffer.id}}' ng-click='connexion(dataOffer, $event)'>Connexion</button>
+        </div>
+        <hr>
+        <div class="inscription">
+          <h2>Inscription</h2>
+          <h3>Vous n'avez pas encore de compte candidat?</h3>
+          <button class='bouton' design='orange' id="inscription" ng-click='inscription(dataOffer, $event)' >Inscription</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+<section id='connexion' ng-if='etape == 4'>
+    <div class="title">
+      <div class="wrap">
+        <div class="etape">
+          Etape <br>
+          {{etape}} sur 5
+        </div>
+        <div class="text">
+          Création du profil candidat
+        </div>
+      </div>
+    </div>
+    <div class="corps">
+      <form id='inscription' method="post" enctype="multipart/form-data">
+          <div class="form-wrap">
+            <div class="form-content">
+              <label>Nom:</label>
+              <input type="text" id="nom" />
+            </div><!--
+        --><div class="form-content">
+              <label>Prénom:</label>
+              <input type="text" id="prenom" />
+            </div>
+            <div class="form-content">
+              <label>CV:</label>
+              <input type="file" id="cv" />
+            </div>
+            <div class="form-content">
+              <label>E-mail:</label>
+              <input type="text" id="email" />
+            </div>
+          <div class="footer">
+            <button type="submit" class='bouton' design='orange' value="sinscrire">S'inscrire</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+
+
+
+
+	<section id='inscription' ng-if='etape == 4'>
     <div class="title">
       <div class="wrap">
         <div class="etape">

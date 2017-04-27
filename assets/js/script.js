@@ -379,6 +379,9 @@ $("body").on('click','.offer',function(){
 
 $scope.inscription = function(dataOffer, event){
   $scope.closePreview();
+  $scope.candidateInterface = function(dataOffer, event){
+  }
+
   $scope.etape = 3;
   var dataOffer = dataOffer;
 
@@ -386,6 +389,13 @@ $scope.inscription = function(dataOffer, event){
 
   $('#popup').css('display', 'none');
 
+}
+
+
+
+
+
+$scope.inscription = function(dataOffer, event){
 
   $('body').on('submit','#inscription',function(event){
     event.preventDefault();
