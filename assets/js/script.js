@@ -12,7 +12,7 @@ $scope.preview2 = false;
 $scope.preview3 = false;
 
 $scope.testFormData = [];
-docRoot = '/hackathon_gfi_g11/';
+docRoot = '/';
 var result;
 
 $scope.onglets = [
@@ -454,9 +454,12 @@ $('body').on('submit','#inscriptionForm',function(event){
   var form = {};
   form.nom = $('#nom').val();
   form.prenom = $('#prenom').val();
+  form.email = $('#emailInscription').val();
+  form.motdepasse = $('#motdepasseInscription').val();
   form.cv = $('#cv').val();
-  form.email = $('#email').val();
+  form.dataOffer = $('#dataOffer').val();
   $scope.$apply();
+  console.log(form);
 });
 
 }]);
