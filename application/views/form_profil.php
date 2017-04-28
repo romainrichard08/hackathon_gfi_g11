@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<form id='searchJob' method="post">
 					<div class="form-wrap">
 						<div class="form-content">
-							<label>Dans quelle branche souhaitez-vous nous rejoindre?</label>
+							<label class='label'>Dans quelle branche souhaitez-vous nous rejoindre?</label>
 							<select id="branche" required>
 							  <option value="Commercial">Commercial</option>
 							  <option value="Informatique" selected>Informatique</option>
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</select>
 						</div><!--
   			--><div class="form-content">
-							<label>Quel type de contrat recherchez-vous?</label>
+							<label class='label'>Quel type de contrat recherchez-vous?</label>
 							<select id="contrat" required>
 							  <option value="CDI">CDI</option>
 							  <option value="CDD">CDD</option>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</select>
 						</div><!--
   			--><div class="form-content">
-							<label>Ou êtes-vous ?</label>
+							<label class='label'>Ou êtes-vous ?</label>
 					    <select id="localisation" required>
 					      <option value="Paris">(75) - Paris</option>
 					      <option value="Marseille">(13) - Marseille</option>
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					    </select><br>
 						</div>
 						<div class="form-content" full>
-							<label>Quelles compétences avez-vous? (Entrée pour ajouter)</label>
+							<label class='label'>Quelles compétences avez-vous? (Entrée pour ajouter)</label>
 							<div id='ajout-tag-wrap' class='f-left'>
 					        <ul class='u-t-input f-left w-100 h-auto'>
 
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					        </ul>
 					    </div>
-					    <input id='uploadTagsValues' value='38/' type='text' name='tags' style='display:none;'>
+					    <input id='uploadTagsValues' type='text' name='tags' style='display:none;'>
 						</div>
 					</div>
 
@@ -200,16 +200,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <div class="corps">
-      <div class="wrap">
-        <div class="connexion">
-          <h2>Connexion</h2>
-          <h3>Vous êtes déjà inscrit?</h3>
+      <div class="choix">
+        <div class="cand-connex">
+          <div>Vous êtes déjà inscrit?</div>
           <button class='bouton' design='orange' id="connexion" dataOffer='{{dataOffer.id}}' ng-click='goToConnexion(dataOffer, $event)'>Connexion</button>
         </div>
-        <hr>
-        <div class="inscription">
-          <h2>Inscription</h2>
-          <h3>Vous n'avez pas encore de compte candidat?</h3>
+        <div class="cand-connex">
+          <div>Vous n'avez pas encore de compte candidat?</div>
           <button class='bouton' design='orange' id="inscription" ng-click='goToInscription(dataOffer, $event)' >Inscription</button>
         </div>
       </div>
@@ -235,21 +232,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="corps">
       <form id='connexionForm' method="post" enctype="multipart/form-data">
           <div class="form-wrap">
-            <div class="form-content">
-              <label>Email:</label>
+            <div class="form-content" half>
+              <label class='label'>Email:</label>
               <input type="text" id="email" class="input-form" required />
             </div><!--
-        --><div class="form-content">
-              <label>Mot de passe:</label>
+        --><div class="form-content" half>
+              <label class='label'>Mot de passe:</label>
               <input type="password" id="motdepasse" class="input-form" required />
             </div>
-            <div class="form-content">
-              <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
-            </div>
-          <div class="footer">
-            <button class='bouton' design='orange'>Connexion</button>
-          </div>
+            <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
         </div>
+				<div class="footer">
+					<button class='bouton' design='orange'>Connexion</button>
+				</div>
       </form>
     </div>
   </section>
@@ -275,32 +270,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <form id='inscriptionForm' method="post" enctype="multipart/form-data">
 		      <div class="form-wrap">
 		        <div class="form-content">
-		          <label>Nom:</label>
+		          <label class='label'>Nom:</label>
 		          <input type="text" id="nomInscription" class="input-form" required/>
 		        </div><!--
 		    --><div class="form-content">
-		          <label>Prénom:</label>
+		          <label class='label'>Prénom:</label>
 		          <input type="text" id="prenomInscription" class="input-form" required/>
 		        </div>
 		        <div class="form-content">
-		          <label>CV:</label>
-		          <input type="file" id="cvInscription" />
+		          <label class='label'>CV:</label>
+							<label for="cvInscription" class='bouton' design='orange'>Choisir un fichier</label>
+		          <input type="file" id="cvInscription" style='display: none'/>
 		        </div>
 		        <div class="form-content">
-		          <label>E-mail:</label>
+		          <label class='label'>E-mail:</label>
 		          <input type="text" id="emailInscription" class="input-form" required />
 		        </div>
             <div class="form-content">
-              <label>Mot de passe:</label>
+              <label class='label'>Mot de passe:</label>
               <input type="password" id="motdepasseInscription" class="input-form" required/>
             </div>
             <div class="form-content">
               <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
             </div>
-		      <div class="footer">
-		        <button class='bouton' design='orange' >Inscription</button>
-		      </div>
 		    </div>
+				<div class="footer">
+					<button class='bouton' design='orange' >Inscription</button>
+				</div>
 		  </form>
     </div>
   </section>
@@ -318,28 +314,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
     </div>
+		<div class="timer" ng-if='beginTest && !FinTest'>
+			<div class="barre">
+				<div class="cursor" style='height: {{timer/30 * 100}}%'>
+
+				</div>
+			</div>
+		</div>
+		<div class="test-ready f-left" ng-if='FinTest'>
+			Résultat du Test: 100%;
+		</div>
     <div class="corps">
-      <div class="test-wrap">
-				<form method="POST" action="#">
+			<form ng-submit='verifierTest()'>
+			<div class="test-ready f-left" ng-if='!beginTest && !FinTest'>
+				Etes vous prêt à commencer le test de compétence?
+				Durée: <strong>30s</strong>
+			</div>
+      <div class="test-wrap" ng-if='beginTest && !FinTest'>
 					<div class="question" ng-repeat='ques in test_questions'>
-						<div class="q-title">
-							{{$index}} - {{ques.questions.question}}
+						<div class="q-title f-left">
+							<div class="q-number">
+								{{$index + 1}}
+							</div>
+							<div class="q-text f-left">
+								{{ques.questions.question}}
+							</div>
 						</div>
 
 						<div class="reponses">
-							<div class="reponse" ng-repeat='rep in ques.reponses'>
-								<input type='radio' name='{{rep.id_question}}'  >
-                <input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
-							 	{{rep.reponse}}
+							<div class="reponse" ng-repeat='rep in ques.reponses track by rep.id'>
+                <input type='radio' name='question{{rep.id_question}}' ng-model='testFormData[$parent.$index]' required  ng-value='rep'>
+							 	<span>{{rep.reponse}}</span>
 							</div>
 						</div>
 					</div>
-					{{testFormData}}
-				</form>
+
+      </div>
+			<div class="footer" ng-if='beginTest && !FinTest'>
+				<div class="footer">
+					<button class='bouton' type='submit' design='orange' value="sinscrire">VALIDER LE TEST</button>
+				</div>
+			</div>
+			<div class="footer" ng-if='!beginTest && !FinTest'>
+				<div class="footer">
+					<button class='bouton' ng-click='commencerTest()' design='orange' value="sinscrire">COMMENCER LE TEST</button>
+				</div>
+			</div>
+			<div class="footer" ng-if='FinTest'>
+				<div class="footer">
+					<button class='bouton' ng-click='getEntretient()' design='orange' value="sinscrire">DEMANDER UN ENTRETIEN</button>
+				</div>
+			</div>
+			</form>
+    </div>
+  </section>
+
+	<section id="entretient" ng-if='etape == 5' >
+    <div class="title">
+      <div class="wrap">
+        <div class="etape">
+          Etape <br>
+          {{etape}} sur 5
+        </div>
+        <div class="text">
+          Demande d'entretient
+        </div>
+      </div>
+    </div>
+    <div class="corps">
+      <div class="choix-entretient f-left">
+        Selectionnez une date d'entretient et validez l'envoi
+
+				<img class='img-entretient' src="<?php echo base_url(); ?>assets/img/entretient.png" alt="">
       </div>
 			<div class="footer">
 				<div class="footer">
-					<button type="submit" class='bouton' design='orange' value="sinscrire">VALIDER LE FORMULAIRE</button>
+					<button class='bouton' design='orange' value="sinscrire">VALIDER L'ENTRETIENT</button>
 				</div>
 			</div>
     </div>

@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class OfferController extends CI_Controller {
 
   public function index() {
@@ -17,9 +16,9 @@ class OfferController extends CI_Controller {
       $id_offre= $_POST['idOffer'];
       $this->load->model('testTechnique');
       //Recuperation de l'id du test grâce à l'id de l'offre
-      $id_test = $this->testTechnique->getTestById($id_offre);
+      $test = $this->testTechnique->getTestById($id_offre);
       //Recuperation des questions grace à l'id de l'id de test
-      $questions = $this->testTechnique->getQuestionsById($id_test->id_test);
+      $questions = $this->testTechnique->getQuestionsById($test->id_test);
 
       //Rassemble dans un tableau les questions et les réponses
       $result = [];
@@ -28,13 +27,12 @@ class OfferController extends CI_Controller {
           $q = $value;
           $result[$key] = [];
           array_push($result[$key], $q);
-          array_push($result[$key], $this->testTechnique->getReponsesById($value->id));
-
+          // print_r($value);
+          array_push($result[$key], $this->testTechnique->getReponsesById($value['id']));
       }
 
 
       echo json_encode($result);
-      // $this->load->view('form_test_technique', array('result' => $result));
 
   }
 

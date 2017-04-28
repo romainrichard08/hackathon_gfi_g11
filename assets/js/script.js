@@ -10,6 +10,10 @@ $scope.previewGlobal = false;
 $scope.preview1 = false;
 $scope.preview2 = false;
 $scope.preview3 = false;
+$scope.beginTest = false;
+$scope.FinTest = false;
+$scope.connected = false;
+$scope.timer = 0;
 
 $scope.testFormData = [];
 docRoot = '/hackathon_gfi_g11/';
@@ -33,7 +37,10 @@ $scope.closePreview = function(){
 
 
 $scope.changeView = function(onglet, event){
-  if ($scope.previewGlobal && onglet.etape == $scope.etape) {
+  if ($scope.beginTest){
+
+  }
+  else if ($scope.previewGlobal && onglet.etape == $scope.etape) {
     $scope.closePreview();
   }
   else if (onglet.etape == 2 && onglet.etape > $scope.etape && $scope.jobs.length > 0) {
@@ -74,11 +81,41 @@ $scope.displayTest = function(id){
         data[index]["reponses"] = el[1];
         $scope.testFormData.push({})
       });
-      console.log(data);
       $scope.test_questions = data;
+      $scope.FinTest = false;
     }
   });
 }
+
+
+$scope.commencerTest = function(){
+  $scope.beginTest = true;
+  $scope.intervalTime = setInterval(function(){
+    $scope.timer++;
+    if($scope.timer == 31){
+      clearInterval($scope.intervalTime)
+      $scope.FinTest = true;
+      $scope.beginTest = false;
+      $scope.timer = 0;
+    }
+    $scope.$apply();
+  },1000)
+}
+
+$scope.verifierTest = function(){
+  event.preventDefault();
+  clearInterval($scope.intervalTime)
+  $scope.FinTest = true;
+  $scope.beginTest = false;
+  $scope.timer = 0;
+}
+
+$scope.getEntretient = function(){
+  $scope.etape = 5;
+  $scope.closePreview();
+}
+
+// $scope.displayTest(1);
 
 
 
@@ -429,53 +466,29 @@ $scope.goToInscription = function(dataOffer, event){
 
 $('body').on('submit','#connexionForm',function(event){
   event.preventDefault();
-  var form = {};
-  form.email = $('#email').val();
-  form.motdepasse = $('#motdepasse').val();
-  form.dataOffer = $('#dataOffer').val();
+  var formCon = {};
+  formCon.email = $('#email').val();
+  formCon.motdepasse = $('#motdepasse').val();
+  formCon.dataOffer = $('#dataOffer').val();
   var idOffer = $('#dataOffer').val();
 
-
-  $scope.$apply();
   $.ajax({
-    url: docRoot+ "ConnexionController/index",
+    url: docRoot+ "ConnexionController/connexion",
     datatype:"json",
     method:'POST',
-    data:{form: form},
+    data:formCon,
     async:false,
     success:function(data){
-      if(data === 'NO'){
+      console.log(data);
+      if(data != '1'){
         alert('UTILISATEUR INCONNU');
       } else {
         $scope.closePreview();
-
         $scope.etape = 4;
+        $scope.$apply();
 
+        $scope.displayTest(idOffer);
 
-
-        // JAI RECUP LA FONCTION DISPLAYTEST ET JE LAI MISE ICI
-        $.ajax({
-          url: docRoot+ "OfferController/testTechnique",
-          datatype:"json",
-          method:'POST',
-          data:{idOffer: idOffer},
-          async:false,
-          success:function(data)
-          {
-            data = JSON.parse(data);
-
-            $.each(data,function(index, el) {
-              // data[index] = [];
-              data[index] = [];
-              data[index]["questions"] = el[0];
-              data[index]["reponses"] = el[1];
-              $scope.testFormData.push({});
-            });
-            console.log(data);
-            $scope.test_questions = data;
-
-            }
-          });
         }
       }
     });
@@ -489,55 +502,33 @@ $('body').on('submit','#connexionForm',function(event){
 
 $('body').on('submit','#inscriptionForm',function(event){
   event.preventDefault();
-  var form = {};
-  form.email = $('#emailInscription').val();
-  form.motdepasse = $('#motdepasseInscription').val();
-  form.nom = $('#nomInscription').val();
-  form.prenom = $('#prenomInscription').val();
-  form.dataOffer = $('#dataOffer').val();
+  var formIns = {};
+  formIns.email = $('#emailInscription').val();
+  formIns.motdepasse = $('#motdepasseInscription').val();
+  formIns.nom = $('#nomInscription').val();
+  formIns.prenom = $('#prenomInscription').val();
+  formIns.dataOffer = $('#dataOffer').val();
   var idOffer = $('#dataOffer').val();
+  console.log(formIns);
 
-  $scope.$apply();
+
   $.ajax({
-    url: docRoot+ "InscriptionController/index",
+    url: docRoot+ "InscriptionController/inscription",
     datatype:"json",
     method:'POST',
-    data:{form: form},
+    data:formIns,
     async:false,
     success:function(data){
       console.log(data);
-      if(data === 'YES'){
+      if(data == '1'){
         alert('UTILISATEUR DEJA INSCRIT!');
       } else {
         $scope.closePreview();
-
         $scope.etape = 4;
+        $scope.$apply();
 
+        $scope.displayTest(idOffer);
 
-
-        // JAI RECUP LA FONCTION DISPLAYTEST ET JE LAI MISE ICI
-        $.ajax({
-          url: docRoot+ "OfferController/testTechnique",
-          datatype:"json",
-          method:'POST',
-          data:{idOffer: idOffer},
-          async:false,
-          success:function(data)
-          {
-            data = JSON.parse(data);
-
-            $.each(data,function(index, el) {
-              // data[index] = [];
-              data[index] = [];
-              data[index]["questions"] = el[0];
-              data[index]["reponses"] = el[1];
-              $scope.testFormData.push({});
-            });
-            console.log(data);
-            $scope.test_questions = data;
-
-            }
-          });
         }
       }
     });

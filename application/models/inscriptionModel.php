@@ -7,19 +7,17 @@ class inscriptionModel extends CI_Model {
     $query = $this->db->query("SELECT * FROM candidats WHERE email = '".$email."' ;");
 
     if($query == NULL){
-      return NULL;
+      return false;
     } else {
       return $query->row();
     }
-
   }
 
   public function insertUserInDatabase($nom, $prenom, $email, $motdepasse){
 
     $motdepasse = sha1($motdepasse);
 
-    $query = $this->db->query("INSERT INTO candidats (nom, prenom, motdepasse, email) VALUES ('".$nom."', '".$prenom."', '".$motdepasse."', '".$email."' ); ");
-    return $query->row();
+    $query = $this->db->query("INSERT INTO candidats VALUES (null,'".$nom."', '".$prenom."', '".$email."',0,1, '".$motdepasse."' ); ");
   }
 
 

@@ -1,29 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class InscriptionController extends CI_Controller {
 
   public function index()
   {
-    $this->load->model('inscriptionModel');
 
-    $nom = htmlentities($_POST['form']['nom']);
-    $prenom = htmlentities($_POST['form']['prenom']);
-    $email = htmlentities($_POST['form']['email']);
-    $motdepasse = htmlentities($_POST['form']['motdepasse']);
+  }
+
+  public function inscription(){
+    $this->load->model('inscriptionModel');
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $motdepasse = $_POST['motdepasse'];
 
     $result = $this->inscriptionModel->checkUserInDatabase($email);
 
-    if($result == NULL){
+    if(!$result){
       // CA VEUT DIRE QUIL TROUVE PAS DE USER A CET EMAIL
-      $checkUser = 'NO';
-      $result = $this->inscriptionModel->insertUserInDatabase($nom,$prenom,$email,$motdepasse);
-
+      $checkUser = false;
+      $this->inscriptionModel->insertUserInDatabase($nom,$prenom,$email,$motdepasse);
     } else {
       // Il trouve un user!
-      $checkUser = 'YES';
+      $checkUser = true;
     }
-    //echo $checkUser;
+    echo $checkUser;
   }
 
 }
