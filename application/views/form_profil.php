@@ -228,7 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           {{etape}} sur 5
         </div>
         <div class="text">
-          Connexion au compte candidat
+          Connexion à votre compte candidat
         </div>
       </div>
     </div>
@@ -237,17 +237,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="form-wrap">
             <div class="form-content">
               <label>Email:</label>
-              <input type="text" id="email" class="input-form" />
+              <input type="text" id="email" class="input-form" required />
             </div><!--
         --><div class="form-content">
               <label>Mot de passe:</label>
-              <input type="password" id="motdepasse" class="input-form" />
+              <input type="password" id="motdepasse" class="input-form" required />
             </div>
             <div class="form-content">
               <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
             </div>
           <div class="footer">
-            <button class='bouton' design='orange'>Inscription</button>
+            <button class='bouton' design='orange'>Connexion</button>
           </div>
         </div>
       </form>
@@ -299,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </section>
 
 
-	<section id="candidateInterface" ng-if='etape == 4'>
+	<section id="testInterface" ng-if='etape == 4'>
     <div class="title">
       <div class="wrap">
         <div class="etape">
@@ -322,11 +322,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="reponses">
 							<div class="reponse" ng-repeat='rep in ques.reponses'>
 								<input type='radio' name='{{rep.id_question}}'  >
+                <input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
 							 	{{rep.reponse}}
 							</div>
 						</div>
 					</div>
-
+          {{testFormData}}
 				</form>
       </div>
 			<div class="footer">

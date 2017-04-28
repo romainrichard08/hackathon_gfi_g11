@@ -10,6 +10,8 @@ $scope.previewGlobal = false;
 $scope.preview1 = false;
 $scope.preview2 = false;
 $scope.preview3 = false;
+
+$scope.testFormData = [];
 docRoot = '/hackathon_gfi_g11/';
 var result;
 
@@ -70,6 +72,7 @@ $scope.displayTest = function(id){
         data[index] = [];
         data[index]["questions"] = el[0];
         data[index]["reponses"] = el[1];
+        $scope.testFormData.push({});
       });
       console.log(data);
       $scope.test_questions = data;
@@ -77,8 +80,7 @@ $scope.displayTest = function(id){
   });
 }
 
-
-
+//$scope.displayTest(4);
 
 
 
@@ -438,19 +440,28 @@ $('body').on('submit','#connexionForm',function(event){
   form.email = $('#email').val();
   form.motdepasse = $('#motdepasse').val();
   form.dataOffer = $('#dataOffer').val();
-  $scope.$apply();
-  console.log(form);
-});
+  var idOffer = $('#dataOffer').val();
 
 
-$('body').on('submit','#inscriptionForm',function(event){
-  event.preventDefault();
-  var form = {};
-  form.nom = $('#nom').val();
-  form.prenom = $('#prenom').val();
-  form.cv = $('#cv').val();
-  form.email = $('#email').val();
   $scope.$apply();
+  $.ajax({
+    url: docRoot+ "ConnexionController/index",
+    datatype:"json",
+    method:'POST',
+    data:{form: form},
+    async:false,
+    success:function(data){
+      if(data === 'NO'){
+        alert('UTILISATEUR INCONNU');
+      } else {
+        $scope.closePreview();
+
+        $scope.etape = 4;
+        $scope.displayTest = idOffer;
+      }
+    }
+  });
 });
+
 
 }]);
