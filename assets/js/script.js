@@ -481,4 +481,70 @@ $('body').on('submit','#connexionForm',function(event){
     });
   });
 
+
+
+
+
+
+
+$('body').on('submit','#inscriptionForm',function(event){
+  event.preventDefault();
+  var form = {};
+  form.email = $('#emailInscription').val();
+  form.motdepasse = $('#motdepasseInscription').val();
+  form.nom = $('#nomInscription').val();
+  form.prenom = $('#prenomInscription').val();
+  form.dataOffer = $('#dataOffer').val();
+  var idOffer = $('#dataOffer').val();
+
+  $scope.$apply();
+  $.ajax({
+    url: docRoot+ "InscriptionController/index",
+    datatype:"json",
+    method:'POST',
+    data:{form: form},
+    async:false,
+    success:function(data){
+      console.log(data);
+      if(data === 'YES'){
+        alert('UTILISATEUR DEJA INSCRIT!');
+      } else {
+        $scope.closePreview();
+
+        $scope.etape = 4;
+
+
+
+        // JAI RECUP LA FONCTION DISPLAYTEST ET JE LAI MISE ICI
+        $.ajax({
+          url: docRoot+ "OfferController/testTechnique",
+          datatype:"json",
+          method:'POST',
+          data:{idOffer: idOffer},
+          async:false,
+          success:function(data)
+          {
+            data = JSON.parse(data);
+
+            $.each(data,function(index, el) {
+              // data[index] = [];
+              data[index] = [];
+              data[index]["questions"] = el[0];
+              data[index]["reponses"] = el[1];
+              $scope.testFormData.push({});
+            });
+            console.log(data);
+            $scope.test_questions = data;
+
+            }
+          });
+        }
+      }
+    });
+  });
+
+
+
+
+
 }]);

@@ -276,22 +276,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		      <div class="form-wrap">
 		        <div class="form-content">
 		          <label>Nom:</label>
-		          <input type="text" id="nom" />
+		          <input type="text" id="nomInscription" class="input-form" required/>
 		        </div><!--
 		    --><div class="form-content">
 		          <label>Prénom:</label>
-		          <input type="text" id="prenom" />
+		          <input type="text" id="prenomInscription" class="input-form" required/>
 		        </div>
 		        <div class="form-content">
 		          <label>CV:</label>
-		          <input type="file" id="cv" />
+		          <input type="file" id="cvInscription" />
 		        </div>
 		        <div class="form-content">
 		          <label>E-mail:</label>
-		          <input type="text" id="email" />
+		          <input type="text" id="emailInscription" class="input-form" required />
 		        </div>
+            <div class="form-content">
+              <label>Mot de passe:</label>
+              <input type="password" id="motdepasseInscription" class="input-form" required/>
+            </div>
+            <div class="form-content">
+              <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
+            </div>
 		      <div class="footer">
-		        <button class='bouton' design='orange' id="inscriptionButton" ng-click='inscription(dataOffer, $event)' >Inscription</button>
+		        <button class='bouton' design='orange' >Inscription</button>
 		      </div>
 		    </div>
 		  </form>
