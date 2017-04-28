@@ -457,11 +457,35 @@ $('body').on('submit','#connexionForm',function(event){
         $scope.closePreview();
 
         $scope.etape = 4;
-        $scope.displayTest = idOffer;
-      }
-    }
-  });
-});
 
+
+
+        // JAI RECUP LA FONCTION DISPLAYTEST ET JE LAI MISE ICI
+        $.ajax({
+          url: docRoot+ "OfferController/testTechnique",
+          datatype:"json",
+          method:'POST',
+          data:{idOffer: idOffer},
+          async:false,
+          success:function(data)
+          {
+            data = JSON.parse(data);
+
+            $.each(data,function(index, el) {
+              // data[index] = [];
+              data[index] = [];
+              data[index]["questions"] = el[0];
+              data[index]["reponses"] = el[1];
+              $scope.testFormData.push({});
+            });
+            console.log(data);
+            $scope.test_questions = data;
+
+            }
+          });
+        }
+      }
+    });
+  });
 
 }]);
