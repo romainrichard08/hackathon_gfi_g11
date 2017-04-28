@@ -321,21 +321,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<div class="reponses">
 							<div class="reponse" ng-repeat='rep in ques.reponses'>
-<<<<<<< HEAD
-								<input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
-=======
 								<input type='radio' name='{{rep.id_question}}'  >
                 <input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
->>>>>>> mike_dev
 							 	{{rep.reponse}}
 							</div>
 						</div>
 					</div>
-<<<<<<< HEAD
 					{{testFormData}}
-=======
-          {{testFormData}}
->>>>>>> mike_dev
 				</form>
       </div>
 			<div class="footer">

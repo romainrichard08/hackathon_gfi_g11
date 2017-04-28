@@ -72,32 +72,13 @@ $scope.displayTest = function(id){
         data[index] = [];
         data[index]["questions"] = el[0];
         data[index]["reponses"] = el[1];
-<<<<<<< HEAD
         $scope.testFormData.push({})
-=======
-        $scope.testFormData.push({});
->>>>>>> mike_dev
       });
       console.log(data);
       $scope.test_questions = data;
     }
   });
 }
-
-<<<<<<< HEAD
-
-$scope.displayTest(1);
-
-
-
-=======
-//$scope.displayTest(4);
->>>>>>> mike_dev
-
-
-
-
-
 
 
 
