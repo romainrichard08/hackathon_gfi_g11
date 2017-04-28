@@ -204,13 +204,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="connexion">
           <h2>Connexion</h2>
           <h3>Vous êtes déjà inscrit?</h3>
-          <button class='bouton' design='orange' id="connexion" dataOffer='{{dataOffer.id}}' ng-click='connexion(dataOffer, $event)'>Connexion</button>
+          <button class='bouton' design='orange' id="connexion" dataOffer='{{dataOffer.id}}' ng-click='goToConnexion(dataOffer, $event)'>Connexion</button>
         </div>
         <hr>
         <div class="inscription">
           <h2>Inscription</h2>
           <h3>Vous n'avez pas encore de compte candidat?</h3>
-          <button class='bouton' design='orange' id="inscription" ng-click='inscription(dataOffer, $event)' >Inscription</button>
+          <button class='bouton' design='orange' id="inscription" ng-click='goToInscription(dataOffer, $event)' >Inscription</button>
         </div>
       </div>
     </div>
@@ -228,31 +228,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           {{etape}} sur 5
         </div>
         <div class="text">
-          Création du profil candidat
+          Connexion à votre compte candidat
         </div>
       </div>
     </div>
     <div class="corps">
-      <form id='inscription' method="post" enctype="multipart/form-data">
+      <form id='connexionForm' method="post" enctype="multipart/form-data">
           <div class="form-wrap">
             <div class="form-content">
-              <label>Nom:</label>
-              <input type="text" id="nom" />
+              <label>Email:</label>
+              <input type="text" id="email" class="input-form" required />
             </div><!--
         --><div class="form-content">
-              <label>Prénom:</label>
-              <input type="text" id="prenom" />
+              <label>Mot de passe:</label>
+              <input type="password" id="motdepasse" class="input-form" required />
             </div>
             <div class="form-content">
-              <label>CV:</label>
-              <input type="file" id="cv" />
-            </div>
-            <div class="form-content">
-              <label>E-mail:</label>
-              <input type="text" id="email" />
+              <input type="hidden" id="dataOffer" value="{{dataOffer.id}}" />
             </div>
           <div class="footer">
-            <button type="submit" class='bouton' design='orange' value="sinscrire">S'inscrire</button>
+            <button class='bouton' design='orange'>Connexion</button>
           </div>
         </div>
       </form>
@@ -277,7 +272,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <div class="corps">
-		  <form id='inscription' method="post" enctype="multipart/form-data">
+		  <form id='inscriptionForm' method="post" enctype="multipart/form-data">
 		      <div class="form-wrap">
 		        <div class="form-content">
 		          <label>Nom:</label>
@@ -296,7 +291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		          <input type="text" id="email" />
 		        </div>
 		      <div class="footer">
-		        <button type="submit" class='bouton' design='orange' value="sinscrire">S'inscrire</button>
+		        <button class='bouton' design='orange' id="inscriptionButton" ng-click='inscription(dataOffer, $event)' >Inscription</button>
 		      </div>
 		    </div>
 		  </form>
@@ -304,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </section>
 
 
-	<section id="candidateInterface" ng-if='etape == 4'>
+	<section id="testInterface" ng-if='etape == 4'>
     <div class="title">
       <div class="wrap">
         <div class="etape">
@@ -326,12 +321,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<div class="reponses">
 							<div class="reponse" ng-repeat='rep in ques.reponses'>
+<<<<<<< HEAD
 								<input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
+=======
+								<input type='radio' name='{{rep.id_question}}'  >
+                <input type='radio' ng-model='testFormData[$index]' ng-value='rep' name='{{rep.id_question}}'  >
+>>>>>>> mike_dev
 							 	{{rep.reponse}}
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 					{{testFormData}}
+=======
+          {{testFormData}}
+>>>>>>> mike_dev
 				</form>
       </div>
 			<div class="footer">

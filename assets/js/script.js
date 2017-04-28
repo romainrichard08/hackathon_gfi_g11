@@ -72,7 +72,11 @@ $scope.displayTest = function(id){
         data[index] = [];
         data[index]["questions"] = el[0];
         data[index]["reponses"] = el[1];
+<<<<<<< HEAD
         $scope.testFormData.push({})
+=======
+        $scope.testFormData.push({});
+>>>>>>> mike_dev
       });
       console.log(data);
       $scope.test_questions = data;
@@ -80,11 +84,15 @@ $scope.displayTest = function(id){
   });
 }
 
+<<<<<<< HEAD
 
 $scope.displayTest(1);
 
 
 
+=======
+//$scope.displayTest(4);
+>>>>>>> mike_dev
 
 
 
@@ -425,28 +433,71 @@ $scope.candidateInterface = function(dataOffer, event){
 }
 
 
+$scope.goToConnexion = function(dataOffer, event){
+  $scope.previewGlobal = true;
+  $scope.preview2 = true;
+
+}
 
 
-
-$scope.inscription = function(dataOffer, event){
+$scope.goToInscription = function(dataOffer, event){
   $scope.previewGlobal = true;
   $scope.preview3 = true;
-
 }
 
-$('body').on('submit','#inscription',function(event){
+
+$('body').on('submit','#connexionForm',function(event){
   event.preventDefault();
   var form = {};
-  form.nom = $('#nom').val();
-  form.prenom = $('#prenom').val();
-  form.cv = $('#cv').val();
   form.email = $('#email').val();
-  $scope.$apply();
-  inscriptionSubmission(form);
-})
+  form.motdepasse = $('#motdepasse').val();
+  form.dataOffer = $('#dataOffer').val();
+  var idOffer = $('#dataOffer').val();
 
-$scope.inscriptionSubmission = function(form){
-  console.log(form);
-}
+
+  $scope.$apply();
+  $.ajax({
+    url: docRoot+ "ConnexionController/index",
+    datatype:"json",
+    method:'POST',
+    data:{form: form},
+    async:false,
+    success:function(data){
+      if(data === 'NO'){
+        alert('UTILISATEUR INCONNU');
+      } else {
+        $scope.closePreview();
+
+        $scope.etape = 4;
+
+
+
+        // JAI RECUP LA FONCTION DISPLAYTEST ET JE LAI MISE ICI
+        $.ajax({
+          url: docRoot+ "OfferController/testTechnique",
+          datatype:"json",
+          method:'POST',
+          data:{idOffer: idOffer},
+          async:false,
+          success:function(data)
+          {
+            data = JSON.parse(data);
+
+            $.each(data,function(index, el) {
+              // data[index] = [];
+              data[index] = [];
+              data[index]["questions"] = el[0];
+              data[index]["reponses"] = el[1];
+              $scope.testFormData.push({});
+            });
+            console.log(data);
+            $scope.test_questions = data;
+
+            }
+          });
+        }
+      }
+    });
+  });
 
 }]);
